@@ -104,8 +104,7 @@ nav{
 .nav-links li a:hover{
   text-decoration: none;
   color: rgb(29, 29, 29);
-  background-color: rgba(5, 127, 251, 0.2)
-;
+  background-color: rgba(5, 127, 251, 0.2);
   border: none;
   padding: 8px 10px;
   border-radius: 20px;
