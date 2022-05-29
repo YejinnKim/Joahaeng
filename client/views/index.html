@@ -1,10 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Joahaeng</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home_style.css" type="text/css">
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/cdfd86cc2d.js" crossorigin="anonymous"></script>
+    <title>home</title>
 </head>
 <body>
-    Index
+    <div class="header">
+        <nav id="navBar">
+            <img src="images/logo.png" class="logo">
+
+            <div class="search-bar">
+                <form>
+                    <div class="input">
+                        <label>어디서</label>
+                        <input type="text" placeholder="어디로 여행 가시나요?">
+                    </div>
+                    <div class="updown"></div>
+                    <div class="input">
+                        <label>어떤 여행을</label>
+                        <input type="text" placeholder="어떤 여행을 계획 중이신가요?">
+                    </div>
+                    <div class="updown"></div>
+                    <div>
+                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                </form>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="/location" class="active">여행 리스트</a></li>
+                <li><a href="#" class="active">추천 SNS</a></li>
+                <li><a href="#" class="active">여행성향 분석</a></li>
+                <li><i class="fa-solid fa-user fa-lg" style="padding-left: 50px;"></i></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="slider">
+            <div class="slides">
+
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+
+                <div class="slide first">
+                    <img src="images/banner1.jpg">
+                </div>
+                <div class="slide">
+                    <img src="images/banner2.jpg">
+                </div>
+                <div class="slide">
+                    <img src="images/banner3.jpg">
+                </div>
+
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                </div>
+
+            </div>
+
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+            </div>
+        </div>
+
+        <div class="location-rec">
+            <h2>지역 별 추천</h2>
+            <div class="location-rec-img">
+                <ul>
+                    <li><img src="images/seoul.jpg" alt=""></li>
+                    <li><img src="images/gangwon.jpg" alt=""></li>
+                    <li><img src="images/gyeonggi.jpg" alt=""></li>
+                    <li><img src="images/Jeju.jpg" alt=""></li>
+                    <li><img src="images/Gyeongsangnam.jpg" alt=""></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        var counter = 1;
+        setInterval(function(){
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if(counter > 3){
+                counter = 1;
+            }
+        }, 5000);
+    </script>
+
+
 </body>
 </html>
