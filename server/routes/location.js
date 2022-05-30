@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
         console.log(result)
         res.send(result)
     })*/
-    res.sendFile(path.join(__dirname, "../../client/views/location.html"))
+    res.render('location')
 })
 
 module.exports = router

@@ -7,10 +7,10 @@ const location = require('./location')
 const search_location = require('./search_location')
 
 router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "../../client/views/index.html"))
+    res.render('index')
 })
 
-//router.use('/api-test', tourAPI)
+router.use('/api-test', tourAPI)
 router.use('/location', location)
 router.use('/search-location', search_location)
 
