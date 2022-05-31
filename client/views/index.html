@@ -4,44 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="home_style.css" type="text/css">
-    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
+    <link rel="stylesheet" href="/home_style.css" type="text/css">
+    <link href="https://webfontworld.github.io/naver/NanumSquareRound.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/cdfd86cc2d.js" crossorigin="anonymous"></script>
     <title>home</title>
 </head>
 <body>
-    <div class="header">
-        <nav id="navBar">
-            <a href="/"><img src="images/logo.png" class="logo"></a>
+    <header class="header">
+        <a href="/"><img src="images/logo.png" class="logo"></a>
 
-            <div class="search-bar">
-                <form>
-                    <div class="input">
-                        <label>어디서</label>
-                        <input type="text" placeholder="어디로 여행 가시나요?">
-                    </div>
-                    <div class="updown"></div>
-                    <div class="input">
-                        <label>어떤 여행을</label>
-                        <input type="text" placeholder="어떤 여행을 계획 중이신가요?">
-                    </div>
-                    <div class="updown"></div>
-                    <div>
-                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
-                </form>
-            </div>
+        <div class="search-bar">
+            <form>
+                <div class="input">
+                    <label>어디서</label>
+                    <input type="search" placeholder="어디로 여행 가시나요?">
+                </div>
+                <div class="updown"></div>
+                <div class="input">
+                    <label>어떤 여행을</label>
+                    <input type="search" placeholder="어떤 여행을 계획 중이신가요?">
+                </div>
+                <div class="updown"></div>
+                <div>
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </form>
+        </div>
 
-            <ul class="nav-links">
-                <li><a href="/location" class="active">여행 리스트</a></li>
-                <li><a href="#" class="active">추천 SNS</a></li>
-                <li><a href="#" class="active">여행성향 분석</a></li>
-                <li><i class="fa-solid fa-user fa-lg" style="padding-left: 50px;"></i></li>
-            </ul>
-        </nav>
-    </div>
+        <ul class="nav-links">
+            <li><a href="/location" class="active">여행 리스트</a></li>
+            <li><a href="/sns" class="active">추천 SNS</a></li>
+            <li><a href="/analysis" class="active">여행성향 분석</a></li>
+            <li><a href="/login"><i class="fa-solid fa-user fa-lg"></i></a></li>
+            <li><i class="fas fa-bars" id="menu-btn"></i></li>
+        </ul>
+    </header>
 
-    <div class="container">
+    <section class="banner" id="banner">
+
         <div class="slider">
             <div class="slides">
 
@@ -73,38 +73,35 @@
                 <label for="radio3" class="manual-btn"></label>
             </div>
         </div>
+    </section>
 
-        <div class="location-rec">
-            <h2>지역 별 추천</h2>
-            <div class="location-rec-img">
-                <ul>
-                    <li><img src="images/seoul.jpg" alt="" class="img-p"></li>
-                    <li><img src="images/gangwon.jpg" alt="" class="img-p"></li>
-                    <li><img src="images/gyeonggi.jpg" alt="" class="img-p"></li>
-                    <li><img src="images/Jeju.jpg" alt="" class="img-p"></li>
-                    <li><img src="images/Gyeongsangnam.jpg" alt=""></li>
-                </ul>
-            </div>
+    <section class="location-rec" id="location_rec">
+        <h2>지역 별 추천</h2>
+        <div class="location-rec-img">
+            <img src="images/seoul.jpg" alt="">
+            <img src="images/gangwon.jpg" alt="">
+            <img src="images/gyeonggi.jpg" alt="">
+            <img src="images/Jeju.jpg" alt="">
+            <img src="images/Gyeongsangnam.jpg" alt="">
         </div>
+    </section>
 
-        <div class="location-rec">
-            <h2>베스트 여행지</h2>
-            <div class="location-rec-img">
-                <ul>
-                    <li><img src="images/seoul.jpg" alt="" class="img-p"></li>
-                    <li><img src="images/gangwon.jpg" alt="" class="img-p"></li>
-                    <li><img src="images/gyeonggi.jpg" alt="" class="img-p"></li>
-                    <li><img src="images/Jeju.jpg" alt="" class="img-p"></li>
-                    <li><img src="images/Gyeongsangnam.jpg" alt=""></li>
-                </ul>
-            </div>
+    <section class="sns_rec" id="sns_rec">
+        <h2>베스트 여행지</h2>
+        <div class="sns-rec-img">
+            <img src="images/seoul.jpg" alt="">
+            <img src="images/gangwon.jpg" alt="">
+            <img src="images/gyeonggi.jpg" alt="" class="img-p">
+            <img src="images/Jeju.jpg" alt="" class="img-p">
+            <img src="images/Gyeongsangnam.jpg" alt="">
         </div>
-    </div>
+    </section>
 
     <hr class="contain-footer">
 
     <footer class="footer">
         <div class="f-container">
+            <p>Copyright 2022.TWT All rights reserved.</p>
             <div class="row">
                 <div class="footer-col">
                     <h4>project</h4>

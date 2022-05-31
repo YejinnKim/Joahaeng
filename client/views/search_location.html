@@ -11,36 +11,35 @@
     
 </head>
 <body>
-    <div class="header">
-        <nav id="navBar">
-            <a href="/"><img src="/images/logo.png" class="logo"></a>
+    <header class="header">
+        <a href="/"><img src="images/logo.png" class="logo"></a>
 
-            <div class="search-bar">
-                <form>
-                    <div class="input">
-                        <label>어디서</label>
-                        <input type="text" placeholder="어디로 여행 가시나요?">
-                    </div>
-                    <div class="updown"></div>
-                    <div class="input">
-                        <label>어떤 여행을</label>
-                        <input type="text" placeholder="어떤 여행을 계획 중이신가요?">
-                    </div>
-                    <div class="updown"></div>
-                    <div>
-                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
-                </form>
-            </div>
+        <div class="search-bar">
+            <form>
+                <div class="input">
+                    <label>어디서</label>
+                    <input type="search" placeholder="어디로 여행 가시나요?">
+                </div>
+                <div class="updown"></div>
+                <div class="input">
+                    <label>어떤 여행을</label>
+                    <input type="search" placeholder="어떤 여행을 계획 중이신가요?">
+                </div>
+                <div class="updown"></div>
+                <div>
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </form>
+        </div>
 
-            <ul class="nav-links">
-                <li><a href="/location" class="active">여행 리스트</a></li>
-                <li><a href="#" class="active">추천 SNS</a></li>
-                <li><a href="#" class="active">여행성향 분석</a></li>
-                <li><i class="fa-solid fa-user fa-lg" style="padding-left: 50px;"></i></li>
-            </ul>
-        </nav>
-    </div>
+        <ul class="nav-links">
+            <li><a href="/location" class="active">여행 리스트</a></li>
+            <li><a href="/sns" class="active">추천 SNS</a></li>
+            <li><a href="/analysis" class="active">여행성향 분석</a></li>
+            <li><a href="/login"><i class="fa-solid fa-user fa-lg"></i></a></li>
+            <li><i class="fas fa-bars" id="menu-btn"></i></li>
+        </ul>
+    </header>
     <hr class="separator">
 <div class="container">
     <div class="map_wrap">
