@@ -1,122 +1,110 @@
+/* ------------home-------------- */
+
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none; border: none;
+  text-decoration: none;
+  text-transform: capitalize;
 }
 
-/* -------header-------- */
+/* --------header-------- */
 
 .header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 10%;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  padding: 0 10%;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
   background-color: #ffffff;
 }
-  
-  nav{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 0;
-  }
-  
-  .logo{
-    cursor: pointer;
-  }*
-  
-  
-  .search-bar{
-    margin: 0 20px 0 200px;
-    padding: 10px 25px 10px 25px;
-    border-radius: 50px; 
-    border: 1.5px solid rgba(169, 169, 169, 0.473);
-    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .search-bar:hover{
-    margin: 0 20px 0 200px;
-    padding: 10px 25px 10px 25px;
-    border-radius: 50px; 
-    border: 1.5px solid rgba(169, 169, 169, 0.473);
-    box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
-  }
-  
-  .search-bar form{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .search-bar form input{
-    display: block;
-    border: 0;
-    outline: transparent;
-    background: transparent;
-    width: 150%;
-  }
-  
-  .search-bar form button{
-    background: #057ffb;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border: 0;
-    outline: none;
-    cursor: pointer;
-  }
-  
-  .search-bar form button i{
-    color: #fff;
-    align-items: center;
-    margin-bottom: 2px;
-  }
-  
-  .search-bar form label{
-    font-weight: bolder;
-    font-size: 90%;
-  }
-  
-  .input{
-    padding-right: 100px;
-  }
-  
-  .nav-links li{
-    list-style: none;
-    display: inline-block;
-    margin: 10px 10px;
-  }
-  
-  .nav-links li a{
-    text-decoration: none;
-    color: rgb(29, 29, 29);
-    border: none;
-    padding: 8px 10px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-  }
-  
-  .nav-links li a:hover{
-    text-decoration: none;
-    color: rgb(29, 29, 29);
-    background-color: rgba(5, 127, 251, 0.2);
-    border: none;
-    padding: 8px 10px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-  }
 
+.logo{
+  cursor: pointer;
+  width: 80px;
+  height: auto;
+}
+
+
+.search-bar{
+  padding: 10px 25px 10px 25px;
+  border-radius: 50px; 
+  border: 1.5px solid rgba(169, 169, 169, 0.473);
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.2);
+}
+
+.search-bar:hover{
+  padding: 10px 25px 10px 25px;
+  border-radius: 50px; 
+  border: 1.5px solid rgba(169, 169, 169, 0.473);
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+
+.search-bar form{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.input{
+  padding-right: 100px;
+}
+
+
+.search-bar form input{
+  margin-top: 5px;
+  display: block;
+  width: 130%; /* 검색input넓이 */
+  font-size: 11px;
+}
+
+.search-bar form button{
+  background: #057ffb;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.search-bar form button i{
+  color: #fff;
+  align-items: center;
+}
+
+.nav-links li{
+  list-style: none;
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.nav-links li a{
+  color: rgb(29, 29, 29);
+  font-size: 13px;
+}
+
+.nav-links li a:hover{
+  color: #057ffb;
+  border-bottom: .1rem solid #057ffb;
+  padding-bottom: .5rem;
+}
+
+#menu-btn{
+  display: none;
+}
+
+
+/* -------hr------- */
 
 hr{
     opacity: 0.3;
 }
+
+/* ----cardview----- */
 
 
 .bg_white{
@@ -175,9 +163,13 @@ hr{
 /* ----------location----------- */
 
 .city_imgs{
-    margin-top: 50px;
+    margin-top: 150px;
     margin-left: auto; 
     margin-right:auto;
+}
+
+.city_imgs img{
+  border-radius: 5px;
 }
 
 .city_imgs img:hover {

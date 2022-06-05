@@ -1,43 +1,52 @@
+@import url('https://webfontworld.github.io/naver/NanumSquareRound.css');
+
+@font-face {
+  font-family: 'Dolbomche_R';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/Dolbomche_R.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* ------------home-------------- */
+
 body{
-  line-height: 1.5;
-  overflow-x: hidden;
+  font-family: 'Dolbomche_R';
 }
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'poppins', sans-serif;
+  outline: none; border: none;
+  text-decoration: none;
+  text-transform: capitalize;
 }
 
 /* --------header-------- */
 
-.header{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  padding: 0 10%;
-  background-color: #ffffff;
+body{
+  font-family: 'NanumSquareRound';
 }
 
-nav{
-  /* width: 100%; */
+.header{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 30px 15%;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background-color: #ffffff;
 }
 
 .logo{
   cursor: pointer;
-}*
+  width: 80px;
+  height: auto;
+}
 
 
 .search-bar{
-  margin: 0 20px 0 200px;
   padding: 10px 25px 10px 25px;
   border-radius: 50px; 
   border: 1.5px solid rgba(169, 169, 169, 0.473);
@@ -45,7 +54,6 @@ nav{
 }
 
 .search-bar:hover{
-  margin: 0 20px 0 200px;
   padding: 10px 25px 10px 25px;
   border-radius: 50px; 
   border: 1.5px solid rgba(169, 169, 169, 0.473);
@@ -57,14 +65,19 @@ nav{
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
+  font-size: 13px;
 }
 
+.input{
+  padding-right: 100px;
+}
+
+
 .search-bar form input{
+  margin-top: 5px;
   display: block;
-  border: 0;
-  outline: transparent;
-  background: transparent;
-  width: 150%;
+  width: 130%; /* 검색input넓이 */
+  font-size: 11px;
 }
 
 .search-bar form button{
@@ -72,68 +85,45 @@ nav{
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  border: 0;
-  outline: none;
   cursor: pointer;
 }
 
 .search-bar form button i{
   color: #fff;
   align-items: center;
-  margin-bottom: 2px;
-}
-
-.search-bar form label{
-  font-weight: bolder;
-  font-size: 90%;
-}
-
-.input{
-  padding-right: 100px;
 }
 
 .nav-links li{
   list-style: none;
   display: inline-block;
-  margin: 10px 10px;
+  margin: 0 1rem;
 }
 
 .nav-links li a{
-  text-decoration: none;
   color: rgb(29, 29, 29);
-  border: none;
-  padding: 8px 10px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
 }
 
 .nav-links li a:hover{
-  text-decoration: none;
-  color: rgb(29, 29, 29);
-  background-color: #f0f0f4;
-  border: none;
-  padding: 8px 10px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
+  color: #057ffb;
+  border-bottom: .1rem solid #057ffb;
+  padding-bottom: .5rem;
 }
 
+#menu-btn{
+  display: none;
+}
 
 /* ---------banner------------- */
 
 
-.container{
-  padding: 0;
-  width: 100%;
+.banner{
+  margin-top: 150px;
   padding: 0 20%;
-  justify-content: center;
-  align-items: center;
-  margin: 125px 0 100px 0;
 }
 
 .slider{
-  width: 100%;
+  /* width: 100%; */
   height: 400px;
   border-radius: 6px;
   overflow: hidden;
@@ -161,7 +151,6 @@ nav{
 
 .navigation-manual{
   position: absolute;
-  width: 100%;
   margin-top: -40px;
   display: flex;
   padding-left: 27.5%;
@@ -198,8 +187,6 @@ nav{
 .navigation-auto{
   position: absolute;
   display: flex;
-  width: 100%;
-  /* justify-content: center; */
   margin-top: 360px;
   padding-left: 27.5%;
 }
@@ -230,57 +217,102 @@ nav{
 
 /* ----------location-rec--------------- */
 
+
+
 .location-rec{
   margin-top: 60px;
 }
 
 .location-rec h2{
-  margin-bottom: 20px;
+  padding: 0 15%;
+  font-weight: 500;
 }
 
 .location-rec-img{
-  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15%;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
 }
 
-.location-rec-img li{
-  list-style: none;
-  display: inline-block;
-}
-
-.location-rec-img li img{
-  border: none;
+.location-rec-img img{
   border-radius: 5px;
 }
 
-.img-p{
-  margin-right: 4.8px;
+.img_text{
+  position: relative;
 }
+
+.location-rec-img .img__text{
+  position: absolute;
+  top: 120px;
+  left: 65px;
+  z-index: 1;
+  color: #ffffff;
+  font-size: 45px;
+  font-weight: 600;
+  text-shadow: -1px 0 darkgray, 0 1px darkgray, 1px 0 darkgray, 0 -1px darkgray;
+}
+
+
+
+/* ----------sns-rec--------------- */
+
+
+
+.sns_rec{
+  margin-top: 60px;
+}
+
+.sns_rec h2{
+  padding: 0 15%;
+  font-weight: 500;
+}
+
+.sns-rec-img{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15%;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+}
+
+.sns-rec-img img{
+  border-radius: 5px;
+}
+
+
 
 /* -------hr------ */
 
 .contain-footer{
   height: 5px;
-  border: 0;
   box-shadow: 0 10px 10px -10px #8c8c8c inset;
+  margin-top: 100px;
 }
 
 /* ----------footer----------- */
 
 .footer{
-  /* background-color: #24262b; */
   background-color: #f0f0f4;
-  height: 300px;
-  padding: 70px 0;
 }
 
-.f-container{
-  max-width: 1170px;
-  margin: auto;
+.f-container p{
+  padding: 30px 10% 30px 10%;
+  text-align: center;
+  font-size: 13px;
 }
 
 .row{
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20% 30px 20%;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
 }
 
 .footer ul{
@@ -289,17 +321,15 @@ nav{
 
 
 .footer-col{
-  width: 25%;
-  padding: 0 80px;
+  padding: 0 50px;
 }
 
 .footer-col h4{
-  font-size: 15px;
-  /* color: #ffffff; */
-  color: #000000;
+  font-size: 13px;
+  color: #161616;
   text-transform: capitalize;
-  margin-bottom: 35px;
-  font-weight: 500;
+  margin-bottom: 20px;
+  font-weight: 600;
   position: relative;
 }
 
@@ -307,11 +337,11 @@ nav{
   content: '';
   position: absolute;
   left: 0;
-  bottom: -10px;
+  bottom: -8px;
   background-color: #057ffb;
   height: 2px;
   box-sizing: border-box;
-  width: 100px;
+  width: 70px;
 }
 
 .footer-col ul{
@@ -326,14 +356,13 @@ nav{
   font-size: 12px;
   text-transform: capitalize;
   text-decoration: none;
-  font-weight: 300;
+  font-weight: 500;
   color: #000000;
   display: block;
-  transition: all 0.3s ease;
 }
 
 .footer-col ul li a:hover{
-  padding-left: 8px;
+  font-weight: 600;
 }
 
 .social-links a{
@@ -346,7 +375,7 @@ nav{
   text-align: center;
   line-height: 40px;
   border-radius: 50%;
-  transition: all 0.5s ease;
+  /* transition: all 0.5s ease; */
 }
 
 .social-links a:hover{
