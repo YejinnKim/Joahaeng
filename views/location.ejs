@@ -1,44 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/style.css" type="text/css">
-    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/cdfd86cc2d.js" crossorigin="anonymous"></script>
-  <title>location</title>
-</head>
-<body>
-    <header class="header">
-        <a href="/"><img src="images/logo.png" class="logo"></a>
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
 
-        <div class="search-bar">
-            <form>
-                <div class="input">
-                    <label>어디서</label>
-                    <input type="search" placeholder="어디로 여행 가시나요?">
-                </div>
-                <div class="updown"></div>
-                <div class="input">
-                    <label>어떤 여행을</label>
-                    <input type="search" placeholder="어떤 여행을 계획 중이신가요?">
-                </div>
-                <div class="updown"></div>
-                <div>
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </div>
-            </form>
-        </div>
-
-        <ul class="nav-links">
-            <li><a href="/location" class="active">여행 리스트</a></li>
-            <li><a href="/sns" class="active">추천 SNS</a></li>
-            <li><a href="/analysis" class="active">여행성향 분석</a></li>
-            <li><a href="/login"><i class="fa-solid fa-user fa-lg"></i></a></li>
-            <li><i class="fas fa-bars" id="menu-btn"></i></li>
-        </ul>
-    </header>
     <hr class="separator">
     <div class="container">
         <table class="city_imgs">
@@ -64,7 +27,7 @@
                 <tr>
                     <td><a href="/search-location/gyeonggi"><img src="images/Jeollabuk.jpg"></td>
                     <td><a href="/search-location/gangwon"><img src="images/Jeollanam.jpg"></td>
-                    <td><a href="/search-location/chungcheongbuk"><img src="images/t.jpg"></td>
+                    <td><a href="/search-location/chungcheongbuk"><img src="images/chungcheongbuk.jpg"></td>
                     <td><a href="/search-location/Chungcheongnam"><img src="images/Gyeongsangnam.jpg"></td>
                 </tr>
                 <tr>
@@ -76,3 +39,7 @@
   </div>
 </body>
 </html>
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->
