@@ -47,14 +47,14 @@ body{
 
 
 .search-bar{
-  padding: 10px 25px 10px 25px;
+  padding-right: 20px;
   border-radius: 50px; 
   border: 1.5px solid rgba(169, 169, 169, 0.473);
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.2);
 }
 
 .search-bar:hover{
-  padding: 10px 25px 10px 25px;
+  padding-right: 20px;
   border-radius: 50px; 
   border: 1.5px solid rgba(169, 169, 169, 0.473);
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
@@ -68,16 +68,44 @@ body{
   font-size: 13px;
 }
 
-.input{
-  padding-right: 100px;
+.where{
+  padding: 20px 50px 20px 25px;
+  border: none;
+  border-radius: 50px;
 }
 
+.how{
+  padding: 20px 50px 20px 25px;
+  border: none;
+  border-radius: 50px;
+}
+
+.how p{
+  margin-top: 5px;
+  font-weight: 300;
+}
+
+.how:hover{
+  margin-right: 20px;
+  padding: 20px 30px 20px 25px;
+  border: none;
+  border-radius: 50px;
+  background-color: #efeeff;
+  
+}
 
 .search-bar form input{
   margin-top: 5px;
   display: block;
   width: 130%; /* 검색input넓이 */
-  font-size: 11px;
+}
+
+.input:hover{
+  padding: 20px 50px 20px 25px;
+  border: none;
+  border-radius: 50px;
+  background-color: #eeeeee;
+  
 }
 
 .search-bar form button{
@@ -91,6 +119,34 @@ body{
 .search-bar form button i{
   color: #fff;
   align-items: center;
+}
+
+
+.dropdown-container {
+  padding-bottom: 0;
+  width: 420px;
+  border-radius: 20px;
+  border-top: none;
+  position: absolute;
+  top: 90%; left: 34%;
+  z-index: 10;
+  font-size: 14px;
+  color: rgb(34, 34, 34);
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.172549) 0 6px 12px 0;
+  /* visibility: hidden; */
+}
+
+.dropdown-container.is-open {
+  visibility: visible;
+}
+
+.price-block .dropdown-container .dropdown {
+  display: inline-block;
+  margin: 0;
+  border-top: 1px solid #cccccc;
+  width: 100%;
 }
 
 .nav-links li{
@@ -119,7 +175,9 @@ body{
 
 .banner{
   margin-top: 150px;
+  height: 400px;
   padding: 0 20%;
+  /* background-color: red; */
 }
 
 .slider{

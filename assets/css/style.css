@@ -30,14 +30,14 @@
 
 
 .search-bar{
-  padding: 10px 25px 10px 25px;
+  padding: 0 25px;
   border-radius: 50px; 
   border: 1.5px solid rgba(169, 169, 169, 0.473);
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.2);
 }
 
 .search-bar:hover{
-  padding: 10px 25px 10px 25px;
+  padding: 0 25px;
   border-radius: 50px; 
   border: 1.5px solid rgba(169, 169, 169, 0.473);
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
@@ -163,7 +163,7 @@ hr{
 /* ----------location----------- */
 
 .city_imgs{
-    margin-top: 150px;
+    margin-top: 200px;
     margin-left: auto; 
     margin-right:auto;
 }

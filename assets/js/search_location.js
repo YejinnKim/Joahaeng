@@ -1,81 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css" type="text/css">
-    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/cdfd86cc2d.js" crossorigin="anonymous"></script>
-    <title>search_location</title>
-    
-</head>
-<body>
-    <header class="header">
-        <a href="/"><img src="images/logo.png" class="logo"></a>
 
-        <div class="search-bar">
-            <form>
-                <div class="input">
-                    <label>어디서</label>
-                    <input type="search" placeholder="어디로 여행 가시나요?">
-                </div>
-                <div class="updown"></div>
-                <div class="input">
-                    <label>어떤 여행을</label>
-                    <input type="search" placeholder="어떤 여행을 계획 중이신가요?">
-                </div>
-                <div class="updown"></div>
-                <div>
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </div>
-            </form>
-        </div>
-
-        <ul class="nav-links">
-            <li><a href="/location" class="active">여행 리스트</a></li>
-            <li><a href="/sns" class="active">추천 SNS</a></li>
-            <li><a href="/analysis" class="active">여행성향 분석</a></li>
-            <li><a href="/login"><i class="fa-solid fa-user fa-lg"></i></a></li>
-            <li><i class="fas fa-bars" id="menu-btn"></i></li>
-        </ul>
-    </header>
-    <hr class="separator">
-<div class="container">
-    <div class="map_wrap">
-        <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-    
-        <div id="menu_wrap" class="bg_white">
-            <div class="list">
-                <% data.forEach(function (value) { %>
-                <div>
-                    <h2><%= value.title %></h2>
-                    <span class="comment"><%= value.addr1 %> <%= value.addr2 %></span>
-                    <div class="content_list">
-                        <ul>
-                            <li><span>영업 중</span></li>
-                            <li><div class="review"><i class="fa-solid fa-heart"></i><span>4.45</span></div></li>
-                            <li><div class="review"><a>방문자리뷰</a><span>183</span></div></li>
-                        </ul>
-                    </div>
-                    <div class="img_list">
-                        <ul>
-                            <li><img src="<%= value.firstimage %>" class="img"></li>
-                            <li><img src="/images/image-2.png" class="img"></li>
-                            <li><img src="/images/image-3.png" class="img"></li>
-                        </ul>
-                    </div>
-                </div>
-                <hr>
-                <% }); %>
-            </div>
-            <div id="pagination"></div>
-        </div>
-    </div>
-</div>
-    
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b98e10d2f0899609ed12c46693626620"></script>
-    <script>
     // 마커를 담을 배열입니다
     var markers = [];
     
@@ -292,7 +215,3 @@
             el.removeChild (el.lastChild);
         }
     }
-    </script>
-
-</body>
-</html>
