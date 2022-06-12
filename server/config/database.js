@@ -1,10 +1,10 @@
 const mysql = require('mysql')
 const db_info = {
-    host: 'localhost',
+    host: 'joahaeng.cccgliye8vsw.ap-northeast-2.rds.amazonaws.com',
     port: '3306',
-    user: 'root',
-    password: '0000',
-    database: 'joahaengdb'
+    user: 'admin',
+    password: '00000000',
+    database: 'innodb'
 }
 
 module.exports = mysql.createConnection(db_info)

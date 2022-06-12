@@ -3,12 +3,10 @@ const router = express.Router()
 const db = require('../config/database')
 const path = require('path')
 const request = require('request')
-const { nextTick } = require('process')
 
 const SERVICE_KEY = 'oWFaix6AQnNY178TIEjwO4pTopibqVNjzZVjy%2Fys8SRFr9vXjBQYhh3CUTUycBlKNw0Nu5hPR7YYQHxadxRC2w%3D%3D'
 
 router.get('/:region', async (req, res) => {
-
         let url = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList'
         url += `?ServiceKey=${SERVICE_KEY}`
         url += `&MobileOS=ETC`

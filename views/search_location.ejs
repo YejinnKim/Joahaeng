@@ -10,6 +10,7 @@
         <div id="menu_wrap" class="bg_white">
             <div class="list">
                 <% data.forEach(function (value) { %>
+                <% if (value.addr1 && value.addr2) { %>
                 <div>
                     <h2><%= value.title %></h2>
                     <span class="comment"><%= value.addr1 %> <%= value.addr2 %></span>
@@ -22,13 +23,18 @@
                     </div>
                     <div class="img_list">
                         <ul>
-                            <li><img src="<%= value.firstimage %>" class="img"></li>
+                            <% if (!value.firstimage) { %> 
+                                <li><img src="/images/image-1.png" class="img"></li>
+                            <% } else { %>
+                                <li><img src="<%= value.firstimage %>" class="img"></li>
+                            <% } %>
                             <li><img src="/images/image-2.png" class="img"></li>
                             <li><img src="/images/image-3.png" class="img"></li>
                         </ul>
                     </div>
                 </div>
                 <hr>
+                <% } %>
                 <% }); %>
             </div>
             <div id="pagination"></div>
