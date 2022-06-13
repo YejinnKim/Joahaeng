@@ -12,8 +12,8 @@ router.post('/', (req, res) => {
         if (err) throw err
         if (result[0]) {
             req.session.user = {
-                id: user.id,
-                pw: user.pw
+                id: req.body.id,
+                pw: req.body.pw
             } 
         }
         res.redirect('/')

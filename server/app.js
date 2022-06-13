@@ -18,11 +18,11 @@ app.use(session({
     saveUninitialized: true
 }))
 app.use(express.static(__dirname + '/../views'))
-
-app.use(router)
 app.use('/css', express.static(path.resolve(__dirname, "../assets/css")))
 app.use('/images', express.static(path.resolve(__dirname, "../assets/images")))
 app.use('/js', express.static(path.resolve(__dirname, "../assets/js")))
+
+app.use(router)
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`)
