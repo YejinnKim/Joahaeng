@@ -8,21 +8,16 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    var user = req.body
-    console.log(req.body)
-    /* db.query('select * from user where user_ID = ? and password = ?', [user.id, user.pw], (err, result) => {
+    db.query('select * from user where user_ID = ? and password = ?', [req.body.id, req.body.pw], (err, result) => {
         if (err) throw err
         if (result[0]) {
             req.session.user = {
-                id: user.id,
-                pw: user.pw
+                id: req.body.id,
+                pw: req.body.pw
             } 
-        } else {
-            res.status(400).send({message: "일치하는 회원 정보가 없습니다."});
         }
         res.redirect('/')
-    }) */
-    res.redirect('/')
+    })
 })
 
 module.exports = router
