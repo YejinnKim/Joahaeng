@@ -1,0 +1,56 @@
+<!-- Call to Action Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <% if (user) { %>
+        <div class="mb-3 wow fadeIn text-md-end">
+            <a href="/board/write" class="btn btn-dark py-2 px-3">글쓰기</a>
+        </div>
+        <% } %>
+        <% data.forEach(value => { %>
+        <div class="bg-light rounded p-3">
+            <div class="bg-white rounded p-4" style="border: 1px dashed rgba(0, 185, 142, .3)">
+                <div class="row g-5 align-items-center">
+                    <% if (value.multiple == 0) { %>
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                            <img class="img-fluid rounded w-100" src="/public/uploads/<% image.forEach(img => { if (img.board_ID == value.board_ID) { %><%= img.filename %><% }})%>" alt="">
+                        </div>
+                    <% } else { %>
+                        <div class="col-lg-6 wow fadeIn owl-carousel header-carousel">
+                        <% image.forEach(img => { %>
+                        <% if (img.board_ID == value.board_ID) { %>
+                            <div class="header-item" data-wow-delay="0.1s">
+                                <img class="img-fluid rounded w-100" src="/public/uploads/<%= img.filename %>" alt="">
+                            </div>
+                        <% } %>
+                        <% }) %>
+                        </div>
+                    <% } %>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="mb-4">
+                            <h2 class="mb-3"><%= value.place_ID %></h2>
+                            <p><%= value.place_ID %></p>
+                        </div>
+                        <div class="mb-4">
+                            <p><%= value.content %></p>
+                        </div>
+                        <div class="mb-4">
+                            <p><%= value.tag %></p>
+                        </div>
+                        <hr>
+                        <div class="row mb-4">
+                            <div class="col-md-6 text-center">
+                                <i class="fa fa-map-marker-alt me-2"></i>후기 <%= value.board_ID %>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <i class="fa fa-heart me-2"></i>좋아요 <%= value.likes %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+        
+    </div>
+</div>
+<!-- Call to Action End -->
