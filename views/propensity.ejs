@@ -2,7 +2,35 @@
     <div class="container text-center">
         <div class="row justify-content-center">
             <div class="col-lg-6">
-                <h1 class="mb-4">여행 성향 분석</h1>
+                <article class="start">
+                    <h1 class="mt-5 text-center">나의 숨겨진 여행 스타일은?</h1>
+                    <button type="button" class="btn btn-info mt-5" onclick="start();">테스트 시작하기</button>
+                </article>
+            
+                <article class="question">
+                    <div class="progress mt-5">
+                        <div class="progress-bar" role="progressbar" style="width: calc(100/12*1%)"></div>
+                    </div>
+                    <h2 id="title" class="text-center mt-5">문제</h2>
+                    <input id="type" type="hidden" value="EI">
+                    <button id="A" type="button" class="btn btn-info mt-5">Info</button>
+                    <button id="B" type="button" class="btn btn-info mt-5">Info</button>
+                </article>
+            
+                <article class="result">
+                    <img id="img" class="rounded-circle mt-5" src="backpacking.jpg" alt="trip">
+                    <h2 id="trip" class="text-center mt-5">무슨 여행</h2>
+                    <h3 id="explain" class="text-center mt-5">설명</h3>
+                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <div class="share addthis_inline_share_toolbox mt-5"></div>
+                        
+                </article>
+            
+                <!-- 타입 별 값 저장소 -->
+                <input type="hidden" id="EI" value="0">
+                <input type="hidden" id="SN" value="0">
+                <input type="hidden" id="TF" value="0">
+                <input type="hidden" id="JP" value="0">
             </div>
         </div>
     </div>
