@@ -180,22 +180,22 @@
 .header-carousel .owl-nav .owl-prev,
 .header-carousel .owl-nav .owl-next {
     margin: 7px 0;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #FFFFFF;
     background: var(--primary);
     border-radius: 40px;
-    font-size: 20px;
+    font-size: 15px;
     transition: .5s;
 }
 
-.header-carousel .owl-nav .owl-prev:hover,
+/* .header-carousel .owl-nav .owl-prev:hover,
 .header-carousel .owl-nav .owl-next:hover {
     background: var(--dark);
-}
+} */
 
 @media (max-width: 768px) {
     .header-carousel .owl-nav {
@@ -240,24 +240,24 @@
 
 
 /*** Category ***/
-.cat-item div {
+/* .cat-item div {
     background: #FFFFFF;
     border: 1px dashed rgba(0, 185, 142, .3);
     transition: .5s;
-}
+} */
 
 .cat-item:hover div {
     background: var(--primary);
     border-color: transparent;
 }
 
-.cat-item div * {
+/* .cat-item div * {
     transition: .5s;
-}
+} */
 
-.cat-item:hover div * {
+/* .cat-item:hover div * {
     color: #FFFFFF !important;
-}
+} */
 
 
 /*** Property List ***/
@@ -352,8 +352,8 @@
 .testimonial-carousel .owl-nav .owl-prev,
 .testimonial-carousel .owl-nav .owl-next {
     position: relative;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -364,10 +364,10 @@
     transition: .5s;
 }
 
-.testimonial-carousel .owl-nav .owl-prev:hover,
+/* .testimonial-carousel .owl-nav .owl-prev:hover,
 .testimonial-carousel .owl-nav .owl-next:hover {
     background: var(--dark);
-}
+} */
 
 
 /*** Footer ***/
