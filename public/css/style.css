@@ -463,3 +463,8 @@ article {
 .share {
     margin: 0 auto;
 }
+
+#tags{
+    display: flex;
+    justify-content: space-between;
+}

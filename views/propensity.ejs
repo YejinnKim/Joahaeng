@@ -3,29 +3,44 @@
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <article class="start">
-                    <h1 class="mt-5 text-center">나의 숨겨진 여행 스타일은?</h1>
-                    <button type="button" class="btn btn-info mt-5" onclick="start();">테스트 시작하기</button>
+                    <h4 class="mt-5 text-center">재미로 보는</h4>
+                    <h2 class="fw-bolder mt-2 text-center">나의 여행 부캐 찾기 테스트</h2>
+                    <img src="/public/img/traveler.svg" class="mt-5">
+                    <button type="button" class="btn btn-primary mt-5 py-3" onclick="start();">테스트 시작하기</button>
                 </article>
-            
+
                 <article class="question">
                     <div class="progress mt-5">
                         <div class="progress-bar" role="progressbar" style="width: calc(100/12*1%)"></div>
                     </div>
-                    <h2 id="title" class="text-center mt-5">문제</h2>
+                    <p id="questionNum" class="text-start">Q</p>
+                    <h4 id="title" class="text-center mt-5">문제</h4>
                     <input id="type" type="hidden" value="EI">
-                    <button id="A" type="button" class="btn btn-info mt-5">Info</button>
-                    <button id="B" type="button" class="btn btn-info mt-5">Info</button>
+                    <button id="A" type="button" class="btn btn-primary py-3 mt-5">Info</button>
+                    <button id="B" type="button" class="btn btn-primary py-3 mt-5">Info</button>
                 </article>
-            
+
                 <article class="result">
-                    <img id="img" class="rounded-circle mt-5" src="backpacking.jpg" alt="trip">
-                    <h2 id="trip" class="text-center mt-5">무슨 여행</h2>
-                    <h3 id="explain" class="text-center mt-5">설명</h3>
-                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                    <h5>당신의 여행 부캐는</h5>
+                    <h2 id="trip" class="text-center mt-2">무슨 여행</h2>
+                    <img id="img" class="rounded mt-5" src="backpacking.jpg" alt="trip">
+                    <h4 id="location" class="text-center mt-5 fw-bolder">여행지</h4>
+                    <h6 class="text-center mt-1">추천 여행지</h6>
+                    <!-- <div id="tags" class="text-center mt-5">
+                        <h5 id="tag">태그1</h5>
+                        <h5 id="tag">태그2</h5>
+                        <h5 id="tag">태그3</h5>
+                    </div> -->
+                    <h5 id="explain" class="text-center mt-5">설명</h5>
+                    <!-- Go to www.addthis.com/dashboard to customize your tools / 공유 -->
                     <div class="share addthis_inline_share_toolbox mt-5"></div>
-                        
+                    <div id="buttons" class="text-center mt-5 mx-3">
+                        <a href="/propensity"><button type="button" class="btn btn-primary px-3">테스트 다시하기</button></a>
+                        <button type="button" class="btn btn-primary px-3">추천 지역 저장하기</button>
+                    </div>
+
                 </article>
-            
+
                 <!-- 타입 별 값 저장소 -->
                 <input type="hidden" id="EI" value="0">
                 <input type="hidden" id="SN" value="0">
