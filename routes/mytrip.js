@@ -5,12 +5,12 @@ const db = require('./db')
 
 router.get('/', (req, res) => {
     let user = req.session.user
-    var board_sql = `SELECT * FROM board WHERE user_ID='${user.id}' ORDER BY board_ID DESC`
-    var image_sql = `SELECT board_ID, filename FROM image`
-    var mytrip_sql = `SELECT * FROM mytrip WHERE user_ID='${user.id}'`
 
     if (!user) res.redirect('/login')
     else {
+        var board_sql = `SELECT * FROM board WHERE user_ID='${user.id}' ORDER BY board_ID DESC`
+        var image_sql = `SELECT board_ID, filename FROM image`
+        var mytrip_sql = `SELECT * FROM mytrip WHERE user_ID='${user.id}'`
         db.query(board_sql, (err, board_result) => {
             if (err) throw err
             db.query(image_sql, (err, image_result) => {
