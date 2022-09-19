@@ -7,9 +7,11 @@ router.get('/', (req, res) => {
     let user = req.session.user
     if (!user) res.redirect('/login')
     else {
-        var board_sql = `SELECT * FROM board WHERE user_ID='${user.id}' ORDER BY board_ID DESC`
+        var id
+        if (user) id = user.id
+        var board_sql = `SELECT * FROM board WHERE user_ID='${id}' ORDER BY board_ID DESC`
         var image_sql = `SELECT board_ID, filename FROM image`
-        var mytrip_sql = `SELECT * FROM mytrip WHERE user_ID='${user.id}'`
+        var mytrip_sql = `SELECT * FROM mytrip WHERE user_ID='${id}'`
         db.query(board_sql, (err, board_result) => {
             if (err) throw err
             db.query(image_sql, (err, image_result) => {
