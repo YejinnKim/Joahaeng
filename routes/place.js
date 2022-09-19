@@ -34,6 +34,7 @@ router.get('/search', (req, res) => {
     url += `&_type=json`
     url += `&numOfRows=100`
     url += `&arrange=P`
+    url += `&keyword=`
     if (req.query.keyword) 
         url += `&keyword=${urlencode(req.query.keyword)}`
     if (req.query.theme) 
