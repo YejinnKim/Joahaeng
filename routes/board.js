@@ -18,6 +18,7 @@ router.get('/', (req, res) => {
     let user = req.session.user
     var board_sql = `SELECT * FROM board ORDER BY board_ID DESC`
     var image_sql = `SELECT board_ID, filename FROM image`
+    var data = []
 
     db.query(board_sql, (err, board_result) => {
         if (err) throw err

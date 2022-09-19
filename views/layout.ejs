@@ -59,7 +59,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="/place" class="nav-item nav-link">여행지 찾기</a>
+                        <a href="/place?area=1" class="nav-item nav-link">여행지 찾기</a>
                         <a href="/board" class="nav-item nav-link">여행 후기</a>
                         <a href="/propensity" class="nav-item nav-link">여행 성향 분석</a>
                         <a href="/mytrip" class="nav-item nav-link">나의 여행</a>
@@ -112,44 +112,39 @@
         <% if (page == 'index' || page == '여행지 찾기') { %>
             <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
                 <div class="container">
-                    <form type="get" action="/place/search">
-                        <div class="row g-2">
-                            <div class="col-md-10">
-                                <div class="row g-2">
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control border-0 py-3" id="keyword" name="keyword" placeholder="여행 키워드"/>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <select class="form-select border-0 py-3" name="theme">
-                                            <option value="" selected>여행 테마</option>
-                                            <option value="A01">자연</option>
-                                            <option value="A02">인문</option>
-                                            <option value="A03">레포츠</option>
-                                            <option value="A04">쇼핑</option>
-                                            <option value="A05">음식</option>
-                                            <option value="B02">숙박</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <select class="form-select border-0 py-3" name="area">
-                                            <option value="" selected>여행 지역</option>
-                                            <option value="1">서울</option>
-                                            <option value="31">경기도</option>
-                                            <option value="32">강원도</option>
-                                            <option value="33">충청도</option>
-                                            <option value="37">전라도</option>
-                                            <option value="35">경상도</option>
-                                            <option value="39">제주도</option>
-                                        </select>
-                                    </div>
+                    <div class="row g-2">
+                        <div class="col-md-10">
+                            <div class="row g-2">
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control border-0 py-3" placeholder="여행 키워드">
+                                </div>
+                                <div class="col-md-4">
+                                    <select class="form-select border-0 py-3">
+                                        <option selected>여행 테마</option>
+                                        <option value="1"></option>
+                                        <option value="2"></option>
+                                        <option value="3"></option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select class="form-select border-0 py-3">
+                                        <option selected>여행 지역</option>
+                                        <option value="1">서울</option>
+                                        <option value="2">경기도</option>
+                                        <option value="3">강원도</option>
+                                        <option value="4">충청도</option>
+                                        <option value="5">전라도</option>
+                                        <option value="6">경상도</option>
+                                        <option value="7">제주도</option>
+                                        <option value="8">전국</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="col-md-2">
-                                <!-- <input type="button" class="btn btn-dark border-0 w-100 py-3" value="검색" onclick="search();"> -->
-                                <button type="submit" class="btn btn-dark border-0 w-100 py-3" onclick="search();">검색</button>
-                            </div>
                         </div>
-                    </form>
+                        <div class="col-md-2">
+                            <button class="btn btn-dark border-0 w-100 py-3">검색</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         <% } else { %>
@@ -179,9 +174,9 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Quick Links</h5>
-                        <a class="btn btn-link text-white-50" href="/place">여행지 찾기</a>
-                        <a class="btn btn-link text-white-50" href="/propensity">여행 성향 분석</a>
-                        <a class="btn btn-link text-white-50" href="/mytrip">나의 여행</a>
+                        <a class="btn btn-link text-white-50" href="/">여행지 찾기</a>
+                        <a class="btn btn-link text-white-50" href="/">여행 후기</a>
+                        <a class="btn btn-link text-white-50" href="/">여행 성향 분석</a>
                     </div>
                 </div>
             </div>
@@ -207,7 +202,6 @@
     <script src="/public/js/board.js"></script>
     <script src="/public/js/map.js"></script>
     <script src="/public/js/propensity.js"></script>
-    <script src="/public/js/search.js"></script>
     <%- script %>
 </body>
 
