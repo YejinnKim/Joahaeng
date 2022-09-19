@@ -5,7 +5,6 @@ const db = require('./db')
 
 router.get('/', (req, res) => {
     let user = req.session.user
-
     if (!user) res.redirect('/login')
     else {
         var board_sql = `SELECT * FROM board WHERE user_ID='${user.id}' ORDER BY board_ID DESC`
