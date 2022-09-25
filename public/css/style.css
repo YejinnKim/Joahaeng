@@ -468,3 +468,10 @@ article {
     display: flex;
     justify-content: space-between;
 }
+
+/* mytrip-propensity */
+
+.propensity{
+    margin: 100px 0;
+    text-align: center;
+}
