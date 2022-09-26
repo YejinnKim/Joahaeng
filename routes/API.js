@@ -26,8 +26,9 @@ router.get('/area', async (req, res) => {
     url += `&MobileOS=ETC`
     url += `&MobileApp=AppTest`
     url += `&_type=json`
-    url += `&numOfRows=10`
-    //url += `&areaCode=1`
+    url += `&numOfRows=1`
+    url += `&areaCode=1`
+    url += `&arrange=P`
 
     request(
         {url: url, method: 'GET'}, (error, response, body) => {

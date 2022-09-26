@@ -62,7 +62,14 @@
                         <a href="/place" class="nav-item nav-link">여행지 찾기</a>
                         <a href="/board" class="nav-item nav-link">여행 후기</a>
                         <a href="/propensity" class="nav-item nav-link">여행 성향 분석</a>
-                        <a href="/mytrip" class="nav-item nav-link">나의 여행</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">나의 여행</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a href="/mytrip" class="dropdown-item">나의 여행</a>
+                                <a href="/mytrip/board" class="dropdown-item">여행 후기</a>
+                                <a href="/mytrip/propensity" class="dropdown-item">여행 성향</a>
+                            </div>
+                        </div>
                     </div>
                     <% if (!user) { %> 
                         <a href="/login" class="btn btn-primary px-3 d-none d-lg-flex">로그인</a>

@@ -41,6 +41,33 @@ router.get('/', (req, res) => {
     }
 })
 
+router.get('/board', (req, res) => {
+    let user = req.session.user
+    if (!user) res.redirect('/login')
+    else {
+        var id
+        if (user) id = user.id
+        var board_sql = `SELECT * FROM board WHERE user_ID='${id}' ORDER BY board_ID DESC`
+        var image_sql = `SELECT board_ID, filename FROM image`
+        
+        db.query(board_sql, (err, board_result) => {
+            if (err) throw err
+            db.query(image_sql, (err, image_result) => {
+                if (err) throw err
+                res.render('mytrip_board', {page: '나의 여행', user: user, boardData: board_result, image: image_result})
+            })
+        })
+    }
+})
+
+router.get('/propensity', (req, res) => {
+    let user = req.session.user
+    if (!user) res.redirect('/login')
+    else {
+        res.render('mytrip_propensity', {page: '나의 여행', user: user})
+    }
+})
+
 router.get('/zzim', (req, res) => {
     let user = req.session.user
     if (!user) res.redirect('/login')

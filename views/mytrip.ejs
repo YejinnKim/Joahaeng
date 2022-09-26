@@ -4,13 +4,10 @@
         <div class="col-lg-12 wow slideInRight mb-4" data-wow-delay="0.1s">
             <ul class="nav nav-pills d-inline-flex">
                 <li class="nav-item me-2">
-                    <a class="btn btn-outline-primary active" data-bs-toggle="pill" href="#tab-1">여행 계획</a>
+                    <a class="btn btn-outline-primary active" data-bs-toggle="pill" href="#tab-1">저장한 여행</a>
                 </li>
                 <li class="nav-item me-2">
-                    <a class="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-2">여행 후기</a>
-                </li>
-                <li class="nav-item me-2">
-                    <a class="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-3">여행 성향</a>
+                    <a class="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-2">여행 경로</a>
                 </li>
             </ul>
         </div>
@@ -44,72 +41,7 @@
                 </div>
             </div>
             <div id="tab-2" class="row tab-pane fade show p-0">
-                <% boardData.forEach(value => { %>
-                    <div class="bg-light rounded p-3">
-                        <div class="bg-white rounded p-4" style="border: 1px dashed rgba(0, 185, 142, .3)">
-                            <div class="row g-5 align-items-center">
-                                <% if (value.multiple==0) { %>
-                                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                                        <img class="img-fluid rounded w-100"
-                                            src="/public/uploads/<% image.forEach(img => { if (img.board_ID == value.board_ID) { %><%= img.filename %><% }})%>"
-                                            alt="">
-                                    </div>
-                                    <% } else { %>
-                                        <div class="col-lg-6 wow fadeIn owl-carousel header-carousel">
-                                            <% image.forEach(img=> { %>
-                                                <% if (img.board_ID==value.board_ID) { %>
-                                                    <div class="header-item" data-wow-delay="0.1s">
-                                                        <img class="img-fluid rounded w-100" src="/public/uploads/<%= img.filename %>" alt="">
-                                                    </div>
-                                                <% } %>
-                                            <% }) %>
-                                        </div>
-                                    <% } %>
-                                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                                            <div class="mb-4">
-                                                <h2 class="mb-3"><%= value.place_ID %></h2>
-                                                <!-- <p><%= value.place_ID %></p> -->
-                                            </div>
-                                            <div class="mb-4">
-                                                <p><%= value.content %></p>
-                                            </div>
-                                            <div class="mb-4">
-                                                <p><%= value.tag %></p>
-                                            </div>
-                                            <!-- <hr>
-                                                <div class="row mb-4">
-                                                    <div class="col-md-6 text-center">
-                                                        <i class="fa fa-map-marker-alt me-2"></i>후기 <%= value.board_ID %>
-                                                    </div>
-                                                    <div class="col-md-6 text-center">
-                                                        <i class="fa fa-heart me-2"></i>좋아요 <%= value.likes %>
-                                                    </div>
-                                                </div> -->
-                                        </div>
-                                </div>
-                        </div>
-                    </div>
-                <% }) %>
-            </div>
-            <div id="tab-3" class="row tab-pane fade show p-0">
-                <div class="property-item rounded overflow-hidden">
-                    <div class="position-relative overflow-hidden">
-                        <div class="propensity">
-                            <h5 class="mt-2">당신의 여행 부캐는</h5>
-                            <h2 id="trip" class="mt-2">무슨 여행</h2>
-                            <img id="img" class="rounded mt-5" src="/public/img/busan.jpg" alt="trip">
-                            <h4 id="recommend" class="mt-5 fw-bolder">여행지</h4>
-                            <h6 class="mt-1">추천 여행지</h6>
-                            <h5 id="explain" class="mt-5">설명</h5>
-                            <!-- Go to www.addthis.com/dashboard to customize your tools / 공유 -->
-                            <div class="share addthis_inline_share_toolbox mt-5 "></div>
-                            <div id="buttons" class=" mt-5 mx-3">
-                                <a href="/propensity"><button type="button" class="btn btn-primary px-3">테스트 다시하기</button></a>
-                                <button type="button" class="btn btn-primary px-3" value="save" onclick="save();">추천 지역 저장하기</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                여행 경로
             </div>
         </div>
     </div>
