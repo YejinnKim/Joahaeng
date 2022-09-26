@@ -1,4 +1,6 @@
 var num = 1; //문제 번호
+var mbti = "";
+
 //문제 정보 객체
 var q = {
     1: { "title": "문득 여행이 가고 싶어진 당신! 당신이 정한 여행 메이트는?", "type": "EI", "A": "자신이 속한 팀 또는 단체", "B": "홀로 여행 또는 정말 편한 사람 한 두명" },
@@ -56,7 +58,6 @@ function next() {
         $(".question").hide();
         $(".result").show();
         //mbti로직
-        var mbti = "";
         ($("#EI").val() < 2) ? mbti += "I" : mbti += "E";
         ($("#SN").val() < 2) ? mbti += "N" : mbti += "S";
         ($("#TF").val() < 2) ? mbti += "F" : mbti += "T";
@@ -80,25 +81,23 @@ function next() {
     }
 }
 
-function save(){
-    let recommend = document.getElementById('recommend').value;
-
+const save = () => {
+    console.log(mbti)
+    
     fetch('/propensity', {
-        method: 'POST',
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            propensity: recommend
+            mbti:mbti
         })
     }).then((res) => {
-        if (res.status == 200) {
-            alert('추천 여행지가 저장 됐습니다.')
-        } else if (res.status == 400)
-            alert('추천 여행지가 저장 됐습니다.')
+        if (res.status == 200)
+            location.href = '/mytrip#tab-3'
+        else if (res.status == 400)
             return res.json()
     }).then((data) => {
-        // alert(data.message)
-        console.log(data);
+        console.log(data)
     })
 }

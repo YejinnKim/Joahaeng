@@ -10,10 +10,11 @@ router.get('/', (req, res) => {
     }
 })
 
-router.post('/', (req, res) => {
-    var propensity_sql = `UPDATE user SET propensity = '${req.body.propeneity}' where user_ID='${req.session.id}'`
+router.put('/', (req, res) => {
+    var propensity_sql = `UPDATE user SET mbti = '${req.body.mbti}' where user_ID='${req.session.user.id}'`
     db.query(propensity_sql, (err, result) => {
         if (err) throw err
+        res.status(200).send({message: '저장됐습니다.'})
     })
 })
 

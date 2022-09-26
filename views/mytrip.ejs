@@ -94,7 +94,20 @@
             <div id="tab-3" class="row tab-pane fade show p-0">
                 <div class="property-item rounded overflow-hidden">
                     <div class="position-relative overflow-hidden">
-                        여행 성향 테스트 결과 저장
+                        <div class="propensity">
+                            <h5 class="mt-2">당신의 여행 부캐는</h5>
+                            <h2 id="trip" class="mt-2">무슨 여행</h2>
+                            <img id="img" class="rounded mt-5" src="/public/img/busan.jpg" alt="trip">
+                            <h4 id="recommend" class="mt-5 fw-bolder">여행지</h4>
+                            <h6 class="mt-1">추천 여행지</h6>
+                            <h5 id="explain" class="mt-5">설명</h5>
+                            <!-- Go to www.addthis.com/dashboard to customize your tools / 공유 -->
+                            <div class="share addthis_inline_share_toolbox mt-5 "></div>
+                            <div id="buttons" class=" mt-5 mx-3">
+                                <a href="/propensity"><button type="button" class="btn btn-primary px-3">테스트 다시하기</button></a>
+                                <button type="button" class="btn btn-primary px-3" value="save" onclick="save();">추천 지역 저장하기</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
