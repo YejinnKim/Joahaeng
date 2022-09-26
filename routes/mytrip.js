@@ -16,27 +16,19 @@ router.get('/', (req, res) => {
         var id
         if (user) id = user.id
         var arr = []
-        var board_sql = `SELECT * FROM board WHERE user_ID='${id}' ORDER BY board_ID DESC`
-        var image_sql = `SELECT board_ID, filename FROM image`
         var mytrip_sql = `SELECT * FROM mytrip WHERE user_ID='${id}'`
         
-        db.query(board_sql, (err, board_result) => {
+        db.query(mytrip_sql, (err, mytrip_result) => {
             if (err) throw err
-            db.query(image_sql, (err, image_result) => {
-                if (err) throw err
-                db.query(mytrip_sql, (err, mytrip_result) => {
-                    if (err) throw err
-                    request (
-                        {url: url, method: 'GET'}, (error, response, body) => {
-                            dataList = JSON.parse(body).response.body.items.item
-                            mytrip_result.map(element => {
-                                arr.push(dataList.find(e => e.contentid == element.contentid))
-                            })
-                            res.render('mytrip', {page: '나의 여행', user: user, boardData: board_result, image: image_result, mytripData: arr})
-                        }
-                    )
-                })
-            })
+            request (
+                {url: url, method: 'GET'}, (error, response, body) => {
+                    dataList = JSON.parse(body).response.body.items.item
+                    mytrip_result.map(element => {
+                        arr.push(dataList.find(e => e.contentid == element.contentid))
+                    })
+                    res.render('mytrip', {page: '나의 여행', user: user, mytripData: arr})
+                }
+            )
         })
     }
 })
