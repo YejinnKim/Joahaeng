@@ -7,6 +7,7 @@ const cors = require('cors')
 const router = require('./routes/route')
 require('dotenv').config()
 const port = process.env.PORT
+// const port = 3000
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
