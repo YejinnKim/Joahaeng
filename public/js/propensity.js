@@ -82,8 +82,6 @@ function next() {
 }
 
 const save = () => {
-    console.log(mbti)
-    
     fetch('/propensity', {
         method: 'PUT',
         headers: {
@@ -94,7 +92,7 @@ const save = () => {
         })
     }).then((res) => {
         if (res.status == 200)
-            location.href = '/mytrip#tab-3'
+            location.href = '/mytrip_propensity'
         else if (res.status == 400)
             return res.json()
     }).then((data) => {

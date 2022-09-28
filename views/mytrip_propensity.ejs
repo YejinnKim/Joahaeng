@@ -5,6 +5,7 @@
             <div class="property-item rounded overflow-hidden">
                 <div class="position-relative overflow-hidden">
                     <div class="propensity">
+                        <h2 id="mbti" hidden><%= propensity_result.mbti %></h2>
                         <h5 class="mt-2">당신의 여행 부캐는</h5>
                         <h2 id="trip" class="mt-2">무슨 여행</h2>
                         <img id="img" class="rounded mt-5" src="/public/img/busan.jpg" alt="trip">
@@ -14,10 +15,8 @@
                         <!-- Go to www.addthis.com/dashboard to customize your tools / 공유 -->
                         <div class="share addthis_inline_share_toolbox mt-5 "></div>
                         <div id="buttons" class=" mt-5 mx-3">
-                            <a href="/propensity"><button type="button" class="btn btn-primary px-3">테스트
-                                    다시하기</button></a>
-                            <button type="button" class="btn btn-primary px-3" value="save" onclick="save();">추천 지역
-                                저장하기</button>
+                            <a href="/propensity"><button type="button" class="btn btn-primary px-3">테스트 다시하기</button></a>
+                            <a href="/place"><button type="button" class="btn btn-primary px-3">추천 지역 여행지 확인하러 가기</button></a>
                         </div>
                     </div>
                 </div>

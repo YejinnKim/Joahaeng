@@ -56,7 +56,12 @@ router.get('/propensity', (req, res) => {
     let user = req.session.user
     if (!user) res.redirect('/login')
     else {
-        res.render('mytrip_propensity', {page: '나의 여행', user: user})
+        var propensity_sql = `select mbti from user where user_id='${req.session.user.id}'`
+        db.query(propensity_sql, (err, propensity_result) => {
+            if (err) throw err
+            res.render('mytrip_propensity', {page: '나의 여행', user: user, propensity_result:propensity_result[0]})
+        })
+        
     }
 })
 
@@ -71,5 +76,6 @@ router.get('/zzim', (req, res) => {
         })
     }
 })
+
 
 module.exports = router
