@@ -30,6 +30,11 @@ const join = () => {
 
     if (!(userid && userpw && userpwck && username && userphone)) return alert('모든 값을 입력해주세요.')
     if (userpw != userpwck) return alert('비밀번호가 일치하지 않습니다.')
+    if (userid == userpw) return alert('아이디와 비밀번호가 일치합니다.')
+    if (userid.length < 5 ) return alert('아이디를 5글자 이상 입력하세요.')
+    if (userpw.length < 8 ) return alert('비밀번호를 8글자 이상 입력하세요.')
+    if (userphone.length < 11 ) return alert('전화번호를 11글자 이상 입력하세요.')
+
 
     fetch('/join', {
         method: 'POST',

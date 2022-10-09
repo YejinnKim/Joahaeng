@@ -290,11 +290,11 @@ a {
 }
 
 .property-item .border-top {
-    border-top: 1px dashed rgba(0, 185, 142, .3) !important;
+    border-top: 1px dashed rgba(0, 52, 185, 0.3) !important;
 }
 
 .property-item .border-end {
-    border-right: 1px dashed rgba(0, 185, 142, .3) !important;
+    border-right: 1px dashed rgba(0, 52, 185, 0.3) !important;
 }
 
 
