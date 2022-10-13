@@ -29,9 +29,21 @@ router.get('/', (req, res) => {
 
 router.get('/write', (req, res) => {
     let user = req.session.user
+    let boardid
     if (!user) res.redirect('/login')
     else {
-        res.render('board_write', {page: '여행 후기 작성', user: user})
+        if (req.query.boardid) {
+            boardid = req.query.boardid
+            var board_sql = `SELECT * FROM board WHERE board_ID='${boardid}'`
+            var img_sql = `SELECT * FROM image WHERE board_ID='${boardid}'`
+            db.query(board_sql, (err, board_result) => {
+                if (err) throw err
+                db.query(img_sql, (err, image_result) => {
+                    res.render('board_write', {page: '여행 후기 작성', user: user, data: board_result[0], image: image_result})
+                })
+            })
+        } else 
+            res.render('board_write', {page: '여행 후기 작성', user: user, data: 0})
     }
 })
 
@@ -72,6 +84,49 @@ router.post('/image', upload.array('uploadFile'), (req, res) => {
     res.status(200).send({
         message: "success",
         fileInfo: req.files
+    })
+})
+
+router.put('/', (req, res) => {
+    var board_sql = `UPDATE board SET place_ID='${req.body.location}', content='${req.body.content}', tag='${req.body.tag}' WHERE board_ID = '${req.body.boardid}'`
+    var img = req.body.image
+    var filename
+    var img_sql = `SELECT filename FROM image WHERE board_ID = '${req.body.boardid}'`
+    var img_del = `DELETE FROM image WHERE board_ID = '${req.body.boardid}'`
+    var img_ins = `INSERT INTO image (board_ID, filename) VALUES (?, ?)`
+
+    db.query(board_sql, (err, result) => {
+        if (err) throw err
+        if (img) {
+            db.query(img_sql, (err, result) => {
+                if (img.includes(',')) {
+                    filename = img.split(',')
+                    db.query(img_del, (err, result) => { if (err) throw err })
+                    for (let i = 0; i < filename.length; i++) {
+                        db.query(img_ins, [req.body.boardid, filename[i]], (err, result) => {
+                            if (err) throw err
+                        })
+                    }
+                } else {
+                    db.query(img_del, (err, result) => { if (err) throw err })
+                    db.query(img_ins, [req.body.boardid, img], (err, result) => { if (err) throw err })
+                }
+            })
+        }
+        res.status(200).send()
+    })
+})
+
+router.delete('/', (req, res) => {
+    var board_sql = `DELETE FROM board WHERE board_ID = '${req.query.boardid}'`
+    var img_sql = `DELETE FROM image WHERE board_ID = '${req.query.boardid}'`
+
+    db.query(board_sql, (err, result) => {
+        if (err) throw err
+        db.query(img_sql, (err, result) => {
+            if (err) throw err
+            res.status(200).send()
+        })
     })
 })
 

@@ -5,10 +5,20 @@
             <div class="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="position-relative rounded w-100 h-100">
                     <div id="image_container" style="height: 100%;">
-                        <label for="uploadFile" class="form-control" style="width: 100%; height: 100%; text-align: center; padding-top: 30%;">
-                            image
-                        </label>
-                        <input type="file" name="uploadFile" id="uploadFile" style="display: none;" onchange="uploadImage(event);" multiple required>
+                        <% if (data) { %>
+                            <input type="hidden" id="boardid" value="<%= data.board_ID %>">
+                            <label id="imglabel" for="uploadFile">
+                            <% for (i=0; i<image.length; i++) { %>
+                                <img class="img-fluid rounded w-100" src="/public/uploads/<%= image[i].filename %>">
+                            <% } %>
+                            </label>
+                            <input type="file" name="uploadFile" id="uploadFile" style="display: none;" onchange="uploadImage(event);" multiple required>
+                        <% } else { %>
+                            <label id="imglabel" for="uploadFile" class="form-control" style="width: 100%; height: 100%; text-align: center; padding-top: 30%;">
+                                image
+                            </label>
+                            <input type="file" name="uploadFile" id="uploadFile" style="display: none;" onchange="uploadImage(event);" multiple required>
+                        <% } %>
                     </div>
                 </div>
             </div>
@@ -19,24 +29,34 @@
                         <div class="row g-3">
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="location" placeholder="location">
-                                    <label for="subject">location</label>
+                                    <input type="text" class="form-control" id="location" placeholder="location" <% if(data) { %>value="<%=data.place_ID%>"<% } %>>
+                                    <label for="subject">
+                                        location
+                                    </label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="content" id="content" style="height: 150px"></textarea>
-                                    <label for="message">content</label>
+                                    <textarea class="form-control" placeholder="content" id="content" style="height: 150px"><% if(data) { %><%=data.content%><% } %></textarea>
+                                    <label for="message">
+                                        content
+                                    </label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="tag" placeholder="tag">
-                                    <label for="subject">tag</label>
+                                    <input type="text" class="form-control" id="tag" placeholder="tag" <% if(data) { %>value="<%=data.tag%>"<% } %>>
+                                    <label for="subject">
+                                        tag
+                                    </label>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <input type="button" class="btn btn-primary w-100 py-3" value="등록" onclick="submitBoard();">
+                                <% if (data) { %>
+                                    <input type="button" class="btn btn-primary w-100 py-3" value="수정" onclick="updateBoard();">
+                                <% } else { %>
+                                    <input type="button" class="btn btn-primary w-100 py-3" value="등록" onclick="submitBoard();">
+                                <% } %>
                             </div>
                         </div>
                     </form>
