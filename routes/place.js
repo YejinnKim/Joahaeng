@@ -60,7 +60,15 @@ router.get('/search', (req, res) => {
     request (
         {url: url, method: 'GET'}, (error, response, body) => {
             dataList = JSON.parse(body).response.body.items.item
-            res.render('place', {page: '여행지 찾기', user: user, data: dataList})
+            if (user) {
+                var id
+                if (user) id = user.id
+                let sql = `SELECT contentid FROM mytrip WHERE user_ID='${id}'`
+                db.query(sql, (err, result) => {
+                    res.render('place', { page: '여행지 찾기', user: user, data: dataList, zzim: result })
+                })
+            } else
+                res.render('place', { page: '여행지 찾기', user: user, data: dataList, zzim: 0 })
         }
     )
 })
