@@ -88,11 +88,12 @@ router.post('/image', upload.array('uploadFile'), (req, res) => {
 })
 
 router.put('/', (req, res) => {
-    var board_sql = `UPDATE board SET place_ID='${req.body.location}', content='${req.body.content}', tag='${req.body.tag}' WHERE board_ID = '${req.body.boardid}'`
+    var boardid = req.body.boardid
+    var board_sql = `UPDATE board SET place_ID='${req.body.location}', content='${req.body.content}', tag='${req.body.tag}' WHERE board_ID = '${boardid}'`
     var img = req.body.image
     var filename
-    var img_sql = `SELECT filename FROM image WHERE board_ID = '${req.body.boardid}'`
-    var img_del = `DELETE FROM image WHERE board_ID = '${req.body.boardid}'`
+    var img_sql = `SELECT filename FROM image WHERE board_ID = '${boardid}'`
+    var img_del = `DELETE FROM image WHERE board_ID = '${boardid}'`
     var img_ins = `INSERT INTO image (board_ID, filename) VALUES (?, ?)`
 
     db.query(board_sql, (err, result) => {
@@ -100,16 +101,18 @@ router.put('/', (req, res) => {
         if (img) {
             db.query(img_sql, (err, result) => {
                 if (img.includes(',')) {
+                    db.query('UPDATE board SET multiple=1 WHERE board_ID=?', boardid, (err, result) => { if (err) throw err})
                     filename = img.split(',')
                     db.query(img_del, (err, result) => { if (err) throw err })
                     for (let i = 0; i < filename.length; i++) {
-                        db.query(img_ins, [req.body.boardid, filename[i]], (err, result) => {
+                        db.query(img_ins, [boardid, filename[i]], (err, result) => {
                             if (err) throw err
                         })
                     }
                 } else {
+                    db.query('UPDATE board SET multiple=0 WHERE board_ID=?', boardid, (err, result) => { if (err) throw err})
                     db.query(img_del, (err, result) => { if (err) throw err })
-                    db.query(img_ins, [req.body.boardid, img], (err, result) => { if (err) throw err })
+                    db.query(img_ins, [boardid, img], (err, result) => { if (err) throw err })
                 }
             })
         }

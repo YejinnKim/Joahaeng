@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const request = require('request')
 const urlencode = require('urlencode');
+const db = require('./db')
 
 router.get('/', (req, res) => {
     let user = req.session.user
@@ -15,13 +16,20 @@ router.get('/', (req, res) => {
     if (req.query.area)
         url += `&areaCode=${req.query.area}`
 
-    request (
-        {url: url, method: 'GET'}, (error, response, body) => {
+    request(
+        { url: url, method: 'GET' }, (error, response, body) => {
             dataList = JSON.parse(body).response.body.items.item
-            res.render('place', {page: '여행지 찾기', user: user, data: dataList})
+            if (user) {
+                var id
+                if (user) id = user.id
+                let sql = `SELECT contentid FROM mytrip WHERE user_ID='${id}'`
+                db.query(sql, (err, result) => {
+                    res.render('place', { page: '여행지 찾기', user: user, data: dataList, zzim: result })
+                })
+            } else
+                res.render('place', { page: '여행지 찾기', user: user, data: dataList, zzim: 0 })
         }
     )
-    
 })
 
 router.get('/search', (req, res) => {
@@ -69,6 +77,7 @@ router.get('/detail', (req, res) => {
     url += `&firstImageYN=Y`
     url += `&addrinfoYN=Y`
     url += `&mapinfoYN=Y`
+    url += `&catcodeYN=Y`
 
     request (
         {url: url, method: 'GET'}, (error, response, body) => {

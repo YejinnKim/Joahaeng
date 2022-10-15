@@ -40,7 +40,16 @@
                                 <div class="d-flex border-top">
                                     <small class="flex-fill text-center border-end py-2"><i class="fa fa-pen text-primary me-2"></i>후기</small>
                                     <small class="flex-fill text-center py-2">
-                                        <a href="/mytrip/zzim?contentid=<%= value.contentid %>"><i class="far fa-heart text-primary me-2"></i>찜</a>
+                                        <% let chk=0 %>
+                                        <% for (let i=0; i < zzim.length; i++) { %>
+                                            <% if (zzim[i].contentid == value.contentid) { %>
+                                                <% chk=1 %>
+                                                <i id="<%= value.contentid %>" class="fa fa-heart text-primary me-2" onclick="zzim(<%=value.contentid%>)"></i>찜
+                                            <% } %>
+                                        <% } %>
+                                        <% if (!chk) { %> 
+                                            <i id="<%= value.contentid %>" class="far fa-heart text-primary me-2" onclick="zzim(<%=value.contentid%>)"></i>찜
+                                        <% } %>
                                     </small>
                                 </div>
                             </div>

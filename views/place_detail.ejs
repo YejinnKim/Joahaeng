@@ -5,6 +5,10 @@
             <h1 class="mb-3"><%= data.title %></h1>
         </div>
         <div class="row g-4">
+            <%= data.addr1 %> <%= data.addr2 %> <br>
+            <%= data.cat1 %> <br>
+        </div>
+        <div class="row g-4">
             <div class="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="position-relative w-100 h-100" style="min-height: 400px; border:0;">
                     <img class="img-fluid rounded" src="<%= data.firstimage %>">
@@ -13,10 +17,6 @@
             <div class="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div id="detail_map" class="position-relative rounded w-100 h-100" style="min-height: 400px; border:0;"></div>
             </div>
-        </div>
-        <div class="row g-4">
-            주소: <%= data.addr1 %> <%= data.addr2 %> <br>
-            관광타입 ID: <%= data.contenttypeid %> <br>
         </div>
         <input id="mapx" type="hidden" value="<%= data.mapx %>">
         <input id="mapy" type="hidden" value="<%= data.mapy %>">

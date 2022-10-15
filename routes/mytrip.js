@@ -5,30 +5,15 @@ const db = require('./db')
 
 router.get('/', (req, res) => {
     let user = req.session.user
-    let url = 'http://apis.data.go.kr/B551011/KorService/areaBasedList'
-    url += `?ServiceKey=${process.env.APIKEY}`
-    url += `&MobileOS=ETC`
-    url += `&MobileApp=AppTest`
-    url += `&_type=json`
-    url += `&numOfRows=36602`
     if (!user) res.redirect('/login')
     else {
         var id
         if (user) id = user.id
-        var arr = []
-        var mytrip_sql = `SELECT * FROM mytrip WHERE user_ID='${id}'`
+        var sql = `SELECT * FROM mytrip WHERE user_ID='${id}'`
         
-        db.query(mytrip_sql, (err, mytrip_result) => {
+        db.query(sql, (err, result) => {
             if (err) throw err
-            request (
-                {url: url, method: 'GET'}, (error, response, body) => {
-                    dataList = JSON.parse(body).response.body.items.item
-                    mytrip_result.map(element => {
-                        arr.push(dataList.find(e => e.contentid == element.contentid))
-                    })
-                    res.render('mytrip', {page: '나의 여행', user: user, mytripData: arr})
-                }
-            )
+            res.render('mytrip', {page: '나의 여행', user: user, data: result})
         })
     }
 })
@@ -65,17 +50,43 @@ router.get('/propensity', (req, res) => {
     }
 })
 
-router.get('/zzim', (req, res) => {
+router.post('/zzim', (req, res) => {
     let user = req.session.user
-    if (!user) res.redirect('/login')
+    let url = 'http://apis.data.go.kr/B551011/KorService/detailCommon'
+    url += `?ServiceKey=${process.env.APIKEY}`
+    url += `&MobileOS=ETC`
+    url += `&MobileApp=AppTest`
+    url += `&_type=json`
+    url += `&defaultYN=Y`
+    url += `&firstImageYN=Y`
+    url += `&addrinfoYN=Y`
+    url += `&mapinfoYN=Y`
+    url += `&contentId=${req.body.contentid}`
+
+    if (!user) res.status(400).send({message: "로그인 후 이용할 수 있습니다."})
     else {
-        var sql = `INSERT INTO mytrip (contentid, user_ID) VALUES ('${req.query.contentid}', '${user.id}')`
-        db.query(sql, (err, result) => {
-            if (err) throw err
-            res.redirect('/place')
-        })
+        request (
+            {url: url, method: 'GET'}, (error, response, body) => {
+                let data = JSON.parse(body).response.body.items.item[0]
+                let sql = `INSERT INTO mytrip (user_ID, contentid, title, addr, image, mapx, mapy) VALUES (`
+                sql += `'${user.id}', '${req.body.contentid}', `
+                sql += `'${data.title}', '${data.addr1}', '${data.firstimage}', '${data.mapx}', '${data.mapy}')`
+
+                db.query(sql, (err, result) => {
+                    if (err) throw err
+                    res.status(200).send()
+                })
+            }
+        )
     }
 })
 
+router.delete('/zzim', (req, res) => {
+    let sql = `DELETE FROM mytrip WHERE contentid='${req.body.contentid}'`
+    db.query(sql, (err, result) => {
+        if (err) throw err
+        res.status(200).send()
+    })
+})
 
 module.exports = router
