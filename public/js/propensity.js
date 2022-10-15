@@ -67,6 +67,7 @@ function next() {
         $("#recommend").html("# "+ result[mbti]["recommend"]);
         $("#trip").html(result[mbti]["trip"]);
         $("#explain").html(result[mbti]["explain"]);
+        $("#btnSearch").attr("href", "/place/search?keyword="+result[mbti]["recommend"]+"&theme=&area=")
     } else {
         //마지막 문제가 아니라면
         //프로그레스 바 증가
@@ -92,7 +93,7 @@ const save = () => {
         })
     }).then((res) => {
         if (res.status == 200)
-            location.href = '/mytrip_propensity'
+            location.href = '/mytrip/propensity'
         else if (res.status == 400)
             return res.json()
     }).then((data) => {

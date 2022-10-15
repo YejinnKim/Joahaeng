@@ -8,11 +8,11 @@
         <% } %>
         <% data.forEach(value => { %>
         <div class="bg-light rounded p-3">
-            <div class="bg-white rounded p-4" style="border: 1px dashed rgba(0, 185, 142, .3)">
+            <div class="bg-white rounded p-4" style="border: 8px double rgba(13, 65, 237, 0.3)">
                 <div class="row g-5 align-items-center">
                     <% if (value.multiple == 0) { %>
                         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                            <img class="img-fluid rounded w-100" src="/public/uploads/<% image.forEach(img => { if (img.board_ID == value.board_ID) { %><%= img.filename %><% }})%>" alt="">
+                            <img class="img-fluid rounded w-70" src="/public/uploads/<% image.forEach(img => { if (img.board_ID == value.board_ID) { %><%= img.filename %><% }})%>" alt="">
                         </div>
                     <% } else { %>
                         <div class="col-lg-6 wow fadeIn owl-carousel header-carousel">

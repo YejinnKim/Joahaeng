@@ -28,4 +28,5 @@ $(window).on("load", function(){
     $("#recommend").html("# "+ result[mbti]["recommend"]);
     $("#trip").html(result[mbti]["trip"]);
     $("#explain").html(result[mbti]["explain"]);
+    $("#btnSearch").attr("href", "/place/search?keyword="+result[mbti]["recommend"]+"&theme=&area=")  
 })

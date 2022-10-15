@@ -186,9 +186,9 @@ a {
 
 .header-carousel .owl-nav .owl-prev,
 .header-carousel .owl-nav .owl-next {
-    margin: 7px 0;
-    width: 30px;
-    height: 30px;
+    margin: 0px 0;
+    width: 0px;
+    height: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
