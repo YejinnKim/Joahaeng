@@ -120,7 +120,7 @@
 
         <!-- Search Start -->
         <% if (page == 'index' || page == '여행지 찾기') { %>
-            <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+            <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;border-radius: 0px 0px 10px 10px;">
                 <div class="container">
                     <form type="get" action="/place/search">
                         <div class="row g-2">
@@ -170,28 +170,28 @@
         <%- body %>
 
         <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-white-50 footer pt-3 mt-5 wow fadeIn" data-wow-delay="0.1s">
-            <div class="container py-5">
-                <div class="row g-5">
-                    <div class="col-lg-3 col-md-6">
-                        <h5 class="text-white mb-4">Information</h5>
+        <div class="container-fluid bg-dark footer pt-3 mt-3 wow fadeIn" data-wow-delay="0.1s" style="color: #666666; font-weight: 400;">
+            <div class="container py-3">
+                <div class="row g-5" style="padding-left: 130px; padding-bottom: 50px;">
+                    <div class="col-lg-3 col-md-3">
+                        <h5 class="mb-4">Information</h5>
                         <p class="mb-2">동양미래대학교</p>
                         <p>컴퓨터소프트웨어공학과</p>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h5 class="text-white mb-4">Copyright</h5>
+                    <div class="col-lg-3 col-md-3">
+                        <h5 class=" mb-4">Copyright</h5>
                         <p class="mb-2">TWT, All Right Reserved. </p>
                         <p>Designed By HTML Codex </p>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h5 class="text-white mb-4">Developer</h5>
-                        <a class="btn btn-link text-white-50" href="/developer">개발팀 소개</a>
+                    <div class="col-lg-3 col-md-3">
+                        <h5 class=" mb-4">Developer</h5>
+                        <a class="btn btn-link" href="/developer" style="color: #666666;">개발팀 소개</a>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h5 class="text-white mb-4">Quick Links</h5>
-                        <a class="btn btn-link text-white-50" href="/place">여행지 찾기</a>
-                        <a class="btn btn-link text-white-50" href="/propensity">여행 성향 분석</a>
-                        <a class="btn btn-link text-white-50" href="/mytrip">나의 여행</a>
+                    <div class="col-lg-3 col-md-3">
+                        <h5 class=" mb-4">Quick Links</h5>
+                        <a class="btn btn-link" href="/place" style="color: #666666;">여행지 찾기</a>
+                        <a class="btn btn-link" href="/propensity" style="color: #666666;">여행 성향 분석</a>
+                        <a class="btn btn-link" href="/mytrip" style="color: #666666;">나의 여행</a>
                     </div>
                 </div>
             </div>
