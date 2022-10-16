@@ -6,6 +6,9 @@
             <a href="/board/write" class="btn btn-dark py-2 px-3">글쓰기</a>
         </div>
         <% } %>
+        <% if (!data[0]) { %>
+            후기가 없습니다.
+        <% } else { %>
         <% data.forEach(value => { %>
         <div class="bg-light rounded p-3">
             <div class="bg-white rounded p-4" style="border: 8px double rgba(13, 65, 237, 0.3)">
@@ -27,8 +30,8 @@
                     <% } %>
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                         <div class="mb-4">
-                            <h2 class="mb-3"><%= value.place_ID %></h2>
-                            <!-- <p><%= value.place_ID %></p> -->
+                            <h2 class="mb-3"><%= value.title %></h2>
+                            <!-- <p><%= value.title %></p> -->
                         </div>
                         <div class="mb-4">
                             <p><%= value.content %></p>
@@ -50,7 +53,7 @@
             </div>
         </div>
         <% }) %>
-        
+        <% } %>
     </div>
 </div>
 <!-- Call to Action End -->

@@ -1,8 +1,9 @@
 const submitBoard = () => {
     const image = document.getElementById('image').value
-    const location = document.getElementById('location').value
+    const title = document.getElementById('title').value
     const content = document.getElementById('content').value
     const tag = document.getElementById('tag').value
+    const contentid = new URLSearchParams(location.search).get('contentid')
     
     if (!(image && location && content && tag)) 
         return alert('모든 값을 입력해주세요.')
@@ -14,9 +15,10 @@ const submitBoard = () => {
         },
         body: JSON.stringify({
             image: image,
-            location: location,
+            title: title,
             content: content,
-            tag: tag
+            tag: tag,
+            contentid: contentid
         })
     }).then((res) => {
         console.log(res)

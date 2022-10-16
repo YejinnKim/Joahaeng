@@ -29,9 +29,9 @@
                         <div class="row g-3">
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="location" placeholder="location" <% if(data) { %>value="<%=data.place_ID%>"<% } %>>
+                                    <input type="text" class="form-control" id="title" placeholder="title" <% if(data) { %>value="<%=data.title%>"<% } else if(title) { %>value="<%=title%>"<% } %>>
                                     <label for="subject">
-                                        location
+                                        title
                                     </label>
                                 </div>
                             </div>

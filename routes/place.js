@@ -75,6 +75,13 @@ router.get('/search', (req, res) => {
 
 router.get('/detail', (req, res) => {
     let user = req.session.user
+    let category = [{"code":"A01","name":"자연","rnum":1},
+                    {"code":"A02","name":"인문(문화/예술/역사)","rnum":2},
+                    {"code":"A03","name":"레포츠","rnum":3},
+                    {"code":"A04","name":"쇼핑","rnum":4},
+                    {"code":"A05","name":"음식","rnum":5},
+                    {"code":"B02","name":"숙박","rnum":6},
+                    {"code":"C01","name":"추천코스","rnum":7}]
     let url = 'http://apis.data.go.kr/B551011/KorService/detailCommon'
     url += `?ServiceKey=${process.env.APIKEY}`
     url += `&MobileOS=ETC`
@@ -90,7 +97,7 @@ router.get('/detail', (req, res) => {
     request (
         {url: url, method: 'GET'}, (error, response, body) => {
             data = JSON.parse(body).response.body.items.item[0]
-            res.render('place_detail', {page: '여행지 정보', user: user, data: data})
+            res.render('place_detail', {page: '여행지 정보', user: user, data: data, category: category})
         }
     )
     

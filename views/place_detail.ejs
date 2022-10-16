@@ -6,7 +6,12 @@
         </div>
         <div class="row g-4">
             <%= data.addr1 %> <%= data.addr2 %> <br>
-            <%= data.cat1 %> <br>
+            <% for (let i=0; i < category.length; i++) { %>
+                <% if (category[i].code == data.cat1) { %>
+                    <%= category[i].name %>
+                <% } %>
+            <% } %>
+            <a href="/board?contentid=<%=data.contentid%>" class="btn btn-dark">후기 조회</a>
         </div>
         <div class="row g-4">
             <div class="col-md-6 wow fadeInUp" data-wow-delay="0.1s">

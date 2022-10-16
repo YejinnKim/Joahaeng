@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const path = require('path')
+const request = require('request')
 const multer = require('multer')
 const storage = multer.diskStorage({
     destination: (req, file, cd) => {
@@ -16,8 +17,10 @@ const db = require('./db')
 
 router.get('/', (req, res) => {
     let user = req.session.user
-    var board_sql = `SELECT * FROM board ORDER BY board_ID DESC`
-    var image_sql = `SELECT board_ID, filename FROM image`
+    let board_sql = `SELECT * FROM board ORDER BY board_ID DESC`
+    let image_sql = `SELECT board_ID, filename FROM image`
+    if (req.query.contentid) 
+        board_sql = `SELECT * FROM board WHERE contentid='${req.query.contentid}' ORDER BY board_ID DESC`
 
     db.query(board_sql, (err, board_result) => {
         if (err) throw err
@@ -29,27 +32,39 @@ router.get('/', (req, res) => {
 
 router.get('/write', (req, res) => {
     let user = req.session.user
-    let boardid
     if (!user) res.redirect('/login')
     else {
         if (req.query.boardid) {
-            boardid = req.query.boardid
-            var board_sql = `SELECT * FROM board WHERE board_ID='${boardid}'`
-            var img_sql = `SELECT * FROM image WHERE board_ID='${boardid}'`
+            var board_sql = `SELECT * FROM board WHERE board_ID='${req.query.boardid}'`
+            var img_sql = `SELECT * FROM image WHERE board_ID='${req.query.boardid}'`
             db.query(board_sql, (err, board_result) => {
                 if (err) throw err
                 db.query(img_sql, (err, image_result) => {
-                    res.render('board_write', {page: '여행 후기 작성', user: user, data: board_result[0], image: image_result})
+                    res.render('board_write', {page: '여행 후기 작성', user: user, data: board_result[0], image: image_result, title: 0})
                 })
             })
+        } else if (req.query.contentid) {
+            let url = 'http://apis.data.go.kr/B551011/KorService/detailCommon'
+            url += `?ServiceKey=${process.env.APIKEY}`
+            url += `&MobileOS=ETC`
+            url += `&MobileApp=AppTest`
+            url += `&_type=json`
+            url += `&contentId=${req.query.contentid}`
+            url += `&defaultYN=Y`
+            request (
+                {url: url, method: 'GET'}, (error, response, body) => {
+                    var data = JSON.parse(body).response.body.items.item[0].title
+                    res.render('board_write', {page: '여행 후기 작성', user: user, data: 0, title: data})
+                }
+            )
         } else 
-            res.render('board_write', {page: '여행 후기 작성', user: user, data: 0})
+            res.render('board_write', {page: '여행 후기 작성', user: user, data: 0, title: 0})
     }
 })
 
 router.post('/write', (req, res) => {
-    var data = `'${req.session.user.id}', '${req.body.location}', '${req.body.content}', '${req.body.tag}'`
-    var board_sql = `INSERT INTO board (user_ID, place_ID, content, tag) VALUES (${data})`
+    var data = `'${req.session.user.id}', '${req.body.title}', '${req.body.content}', '${req.body.tag}', '${req.body.contentid}'`
+    var board_sql = `INSERT INTO board (user_ID, title, content, tag, contentid) VALUES (${data})`
     var img = req.body.image
     var filename
     var img_sql = `INSERT INTO image (board_ID, filename) VALUES (?, ?)`
@@ -89,7 +104,7 @@ router.post('/image', upload.array('uploadFile'), (req, res) => {
 
 router.put('/', (req, res) => {
     var boardid = req.body.boardid
-    var board_sql = `UPDATE board SET place_ID='${req.body.location}', content='${req.body.content}', tag='${req.body.tag}' WHERE board_ID = '${boardid}'`
+    var board_sql = `UPDATE board SET title='${req.body.title}', content='${req.body.content}', tag='${req.body.tag}' WHERE board_ID = '${boardid}'`
     var img = req.body.image
     var filename
     var img_sql = `SELECT filename FROM image WHERE board_ID = '${boardid}'`
