@@ -30,7 +30,11 @@
                     <% } %>
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                         <div class="mb-4">
-                            <h2 class="mb-3"><%= value.title %></h2>
+                            <% if(value.contentid != 'null') { %>
+                            <a href="/place/detail?contentid=<%= value.contentid %>">    
+                            <% } %>
+                                <h2 class="mb-3"><%= value.title %></h2>
+                            </a>
                             <!-- <p><%= value.title %></p> -->
                         </div>
                         <div class="mb-4">

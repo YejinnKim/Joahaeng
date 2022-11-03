@@ -18,9 +18,6 @@ router.use('/login', login)
 router.use('/join', join)
 router.use('/developer', developer)
 router.use('/', index)
-// API test
-const api = require('./API')
-router.use('/api', api)
 
 router.get('/', (req, res) => {
     let user = req.session.user
