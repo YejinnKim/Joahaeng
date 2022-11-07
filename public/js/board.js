@@ -5,7 +5,7 @@ const submitBoard = () => {
     const tag = document.getElementById('tag').value
     const contentid = new URLSearchParams(location.search).get('contentid')
     
-    if (!(image && location && content && tag)) 
+    if (!(image && title && content && tag)) 
         return alert('모든 값을 입력해주세요.')
     
     fetch('/board/write', {
@@ -68,8 +68,7 @@ const uploadImage = (event) => {
     }
 }
 
-const deleteBoard = () => {
-    let id = document.getElementById('boardid').value
+const deleteBoard = (id) => {
     fetch(`/board?boardid=${id}`, {
         method: 'DELETE'
     }).then((res) => {
@@ -79,12 +78,12 @@ const deleteBoard = () => {
 
 const updateBoard = () => {
     const image = document.getElementById('image').value
-    const location = document.getElementById('location').value
+    const title = document.getElementById('title').value
     const content = document.getElementById('content').value
     const tag = document.getElementById('tag').value
     const boardid = document.getElementById('boardid').value
     
-    if (!(location && content && tag)) 
+    if (!(title && content && tag)) 
         return alert('모든 값을 입력해주세요.')
     
     fetch('/board', {
@@ -94,7 +93,7 @@ const updateBoard = () => {
         },
         body: JSON.stringify({
             image: image,
-            location: location,
+            title: title,
             content: content,
             tag: tag,
             boardid: boardid

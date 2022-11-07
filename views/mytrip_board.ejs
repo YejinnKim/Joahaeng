@@ -9,6 +9,7 @@
                         <div class="col-lg-6">
                             <h2 class="mb-4">작성한 후기가 없습니다.</h2><br>
                             <a class="btn btn-primary py-3 px-5" href="/board">후기 작성하러 가기</a>
+                            <br><br><br><br><br>
                         </div>
                     </div>
                 </div>
@@ -34,19 +35,25 @@
                         </div>
                     <% } %>
                         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                            <div class="mb-4" id="btn">
-                                <input type="hidden" id="boardid" value="<%= value.board_ID %>">
+                            <div class="mb-3 text-end" id="btn">
                                 <a href="/board/write?boardid=<%= value.board_ID %>" class="btn btn-dark py-2 px-3">수정</a>
-                                <a href="" class="btn btn-dark py-2 px-3" onclick="deleteBoard()">삭제</a>
+                                <a href="" class="btn btn-dark py-2 px-3" onclick="deleteBoard(<%= value.board_ID %>);">삭제</a>
                             </div>
                             <div class="mb-4">
-                                <h2 class="mb-3"><%= value.title %></h2>
+                                <% if(value.contentid == 'null') { %>
+                                    <h3 class="mb-3"><%= value.title %></h3>  
+                                <% } else { %>
+                                    <a href="/place/detail?contentid=<%= value.contentid %>">
+                                        <h3 class="mb-3"><%= value.title %></h3>
+                                    </a>
+                                <% } %>
+                                <hr>
                             </div>
-                            <div class="mb-4">
+                            <div class="mb-3" style="height: 180px;">
                                 <p><%= value.content %></p>
                             </div>
-                            <div class="mb-4">
-                                <p><%= value.tag %></p>
+                            <div class="mb-5">
+                                <p class="p-2 rounded bg-light" style="display: inline-block; margin: auto;">#<%= value.tag %></p>
                             </div>
                         </div>
                     </div>
