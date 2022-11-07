@@ -3,7 +3,16 @@
     <div class="container">
         <div class="row tab-pane fade show p-0">
         <% if (!boardData[0]) { %>
-            작성한 후기가 없습니다.
+            <div class="container-xxl wow fadeInUp" data-wow-delay="0.1s">
+                <div class="container text-center">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <h2 class="mb-4">작성한 후기가 없습니다.</h2><br>
+                            <a class="btn btn-primary py-3 px-5" href="/board">후기 작성하러 가기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <% } else { %>
         <% boardData.forEach(value=> { %>
             <div class="bg-light rounded p-3">
