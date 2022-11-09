@@ -8,6 +8,7 @@ const mytrip = require('./mytrip')
 const login = require('./login')
 const join = require('./join')
 const developer = require('./developer')
+const myPage = require('./myPage')
 const index = require('./index')
 
 router.use('/place', place)
@@ -17,6 +18,7 @@ router.use('/mytrip', mytrip)
 router.use('/login', login)
 router.use('/join', join)
 router.use('/developer', developer)
+router.use('/myPage', myPage)
 router.use('/', index)
 
 router.get('/', (req, res) => {

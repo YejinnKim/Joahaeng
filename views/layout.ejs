@@ -35,6 +35,9 @@
     
     <!-- Naver Maps API -->
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=zf34p970mz"></script>
+
+    <!-- icon -->
+    <script src="https://kit.fontawesome.com/08c80c9e9b.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -68,9 +71,10 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">나의 여행</a>
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="/mytrip" class="dropdown-item">나의 여행</a>
-                                <a href="/mytrip/board" class="dropdown-item">여행 후기</a>
-                                <a href="/mytrip/propensity" class="dropdown-item">여행 성향</a>
+                                <a href="/mytrip" class="dropdown-item py-2"><i class="fa-regular fa-paper-plane" style="margin-right: 5px;"></i>나의 여행</a>
+                                <a href="/mytrip/board" class="dropdown-item py-2"><i class="fa-regular fa-pen-to-square" style="margin-right: 5px;"></i>여행 후기</a>
+                                <a href="/mytrip/propensity" class="dropdown-item py-2"><i class="fa-regular fa-square-check" style="margin-right: 5px;"></i>여행 성향</a>
+                                <a href="/mypage" class="dropdown-item py-2"><i class="fa-regular fa-face-smile" style="margin-right: 5px;"></i>마이페이지</a>
                             </div>
                         </div>
                     </div>
@@ -220,6 +224,7 @@
     <script src="/public/js/mytrip.js"></script>
     <script src="/public/js/naverMaps.js"></script>
     <script src="/public/js/naverMaps2.js"></script>
+    <script src="/public/js/myPage.js"></script>
     <%- script %>
 </body>
 

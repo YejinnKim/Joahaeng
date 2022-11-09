@@ -518,3 +518,53 @@ article {
 #imgBtn-wrap:hover .imgBtn-text{
     opacity: 1;
 }
+
+/* mypage */
+
+.container hr{
+    border: 0;
+    border-top: 3px solid var(--primary);
+    width: 95%;
+}
+
+.pageBack{
+    padding: 50px 200px;
+}
+
+.pageBack button{
+    float: right;
+}
+
+.update{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.update p{
+    font-size: medium;
+    margin: auto 0;
+}
+
+.update input{
+    width: 300px;
+    height: 50px;
+}
+
+.delete{
+    margin-top: 100px;
+    width: 100%;
+    padding: 0 30px;
+}
+
+.delete p{
+    float: left;
+    color: crimson;
+}
+
+.delete button{
+    float: right;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+}
