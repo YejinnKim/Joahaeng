@@ -1,0 +1,53 @@
+<div class="container-xxl py-5 wow fadeInUp " data-wow-delay="0.1s">
+    <div class="container">
+        <h3 class="px-5">나의 정보</h3>
+        <hr id="mypg"/>
+        <div class="pageBack m-5">
+            <div class="block">
+                <div class="update">
+                    <p>아이디</p>
+                    <input id="userid" type="text" class="form-control" id="userid" value="<%= data.user_ID %>" disabled>
+                </div>
+            </div>
+            <div class="block mt-5">
+                <div class="update">
+                    <p>비밀번호</p>
+                    <input type="text" class="form-control" id="userpw" value="<%= data.password %>" disabled>
+                </div>
+            </div>
+            <div class="block mt-5">
+                <div class="update">
+                    <p>새로운 비밀번호</p>
+                    <input id="newPassword" type="text" class="form-control" id="userpw" placeholder="새로운 비밀번호 입력">
+                </div>
+            </div>
+            <div class="block mt-5">
+                <div class="update">
+                    <p>새로운 비밀번호 확인</p>
+                    <input id="newPasswordCheck" type="password" class="form-control" id="userpw" placeholder="새로운 비밀번호 확인">
+                </div>
+            </div>
+            <div class="block mt-5">
+                <div class="update">
+                    <p>이름</p>
+                    <input id="name" type="text" class="form-control" id="username" value="<%= data.name %>">
+                </div>
+            </div>
+            <div class="block mt-5">
+                <div class="update">
+                    <p>전화번호</p>
+                    <input id="phone" type="tel" class="form-control" id="userphone" value="<%= data.phone %>" oninput="autoHyphen2(this)" maxlength="13">
+                </div>
+            </div>
+            <hr style="border: 0; border-top:1px solid var(--primary); width: 100%; margin: 50px 0;"/>
+            <button class="btn btn-primary" onclick="updateUser()">저장하기</button>
+        </div>
+        <div class="delete">
+            <p>조아행을 이용하고 싶지 않으신가요?</p>
+            <div class="deleteBtn">
+                <button onclick="deleteUser()">회원탈퇴</button>
+                <button><a href="/logout">로그아웃</a></button>
+            </div>
+        </div>
+    </div>
+</div>
