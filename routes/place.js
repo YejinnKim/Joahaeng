@@ -8,7 +8,7 @@ const db = require('./db')
 router.get('/', (req, res) => {
     let user = req.session.user
     let url = 'http://apis.data.go.kr/B551011/KorService/areaBasedList'
-    url += `?ServiceKey=${process.env.APIKEY}`
+    url += `?ServiceKey=${process.env.tourAPIKEY}`
     url += `&MobileOS=ETC`
     url += `&MobileApp=AppTest`
     url += `&_type=json`
@@ -45,7 +45,7 @@ router.get('/search', (req, res) => {
         url = 'http://apis.data.go.kr/B551011/KorService/searchKeyword'
     else 
         url = 'http://apis.data.go.kr/B551011/KorService/areaBasedList'
-    url += `?ServiceKey=${process.env.APIKEY}`
+    url += `?ServiceKey=${process.env.tourAPIKEY}`
     url += `&MobileOS=ETC`
     url += `&MobileApp=AppTest`
     url += `&_type=json`
@@ -84,7 +84,7 @@ router.get('/detail', (req, res) => {
                     {"code":"B02","name":"숙박","rnum":6},
                     {"code":"C01","name":"추천코스","rnum":7}]
     let url = 'http://apis.data.go.kr/B551011/KorService/detailCommon'
-    url += `?ServiceKey=${process.env.APIKEY}`
+    url += `?ServiceKey=${process.env.tourAPIKEY}`
     url += `&MobileOS=ETC`
     url += `&MobileApp=AppTest`
     url += `&_type=json`

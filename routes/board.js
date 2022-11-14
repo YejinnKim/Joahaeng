@@ -45,7 +45,7 @@ router.get('/write', (req, res) => {
             })
         } else if (req.query.contentid) {
             let url = 'http://apis.data.go.kr/B551011/KorService/detailCommon'
-            url += `?ServiceKey=${process.env.APIKEY}`
+            url += `?ServiceKey=${process.env.tourAPIKEY}`
             url += `&MobileOS=ETC`
             url += `&MobileApp=AppTest`
             url += `&_type=json`

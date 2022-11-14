@@ -14,13 +14,13 @@
             </div>
         </div>
         <% } else { %>
-        <div class="text-center col-lg-12 wow slideInRight mb-4" data-wow-delay="0.1s">
+        <div class="text-center col-lg-12 wow fadeInUp mb-5" data-wow-delay="0.1s">
             <ul class="nav nav-pills d-inline-flex">
                 <li class="nav-item me-2">
-                    <a class="btn btn-outline-primary active" data-bs-toggle="pill" href="#tab-1">저장한 여행</a>
+                    <a class="btn btn-outline-primary active px-5 py-3" data-bs-toggle="pill" href="#tab-1">저장한 여행</a>
                 </li>
                 <li class="nav-item me-2">
-                    <a class="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-2">여행 경로</a>
+                    <a class="btn btn-outline-primary px-5 py-3" data-bs-toggle="pill" href="#tab-2">여행 경로</a>
                 </li>
             </ul>
         </div>
@@ -37,7 +37,7 @@
                             <div class="property-item rounded overflow-hidden">
                                 <div class="position-relative overflow-hidden">
                                     <a href="/place/detail?contentid=<%= value.contentid %>">
-                                        <img class="img-fluid" src="<%= value.image %>" alt="">
+                                        <img class="img-fluid" src="<%= value.image %>" alt="" style="height: 180px;">
                                     </a>
                                 </div>
                                 <div class="p-4 pb-0">
@@ -61,9 +61,24 @@
             </div>
             <div id="tab-2" class="row tab-pane fade show p-0">
                 <div class="row g-4 col-md-12">
-                    <div class="wow fadeInUp" data-wow-delay="0.1s">
-                        '서울' 여행을 계획하고 계신가요?<br>
-                        
+                    <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="row g-4 px-5">
+                        <% for(value of area) { %>
+                            <div class="property-item col-md-2 p-4 m-1" onclick="filterArea(<%= value.code %>)"><%= value.name %></div>
+                        <% } %>
+                        </div>
+                        <ul id="databox" class="row g-4 p-4"></ul>
+                        <div class="col-md-6 d-inline-block">
+                            <input class="btn btn-outline-primary px-4 py-3 mb-5 w-100" type="button" value="경로확인" style="color:black;" onclick="directions();">
+                        </div>
+                        <div class="col-md-12 mb-5">
+                            <div class="col-md-6 d-inline-block">
+                                <div id="directions" style="width:550px; height: 400px;"></div>
+                            </div>
+                            <div class="col-md-5 d-inline-block">
+                                <div id="directions_txt" style="width:550px; height: 400px;"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

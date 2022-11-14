@@ -3433,7 +3433,7 @@ fieldset:disabled .btn {
 .btn-outline-primary:active:focus,
 .btn-outline-primary.active:focus,
 .btn-outline-primary.dropdown-toggle.show:focus {
-    box-shadow: 0 0 0 .25rem rgba(0, 185, 142, 0.5)
+    box-shadow: 0 0 0 .25rem rgba(128, 173, 220, 0.5)
 }
 
 .btn-outline-primary:disabled,
